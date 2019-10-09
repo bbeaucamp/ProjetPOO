@@ -13,7 +13,7 @@ import java.util.Random;
  *
  * @author muruowang
  */
-public class Guerrier extends Personnage {
+public class Guerrier extends Personnage implements Combattant  {
 
     public Guerrier(String nom, int ptMana, int pourcentageMag, int pourcentageResistMag, int degMag, int distAttMax, int ptVie, int pourcentageAtt, int pourcentagePar, int degAtt, int ptPar, Point2D pos) {
         super(nom, ptMana, pourcentageMag, pourcentageResistMag, degMag, distAttMax, ptVie, pourcentageAtt, pourcentagePar, degAtt, ptPar, pos);

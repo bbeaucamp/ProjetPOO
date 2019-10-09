@@ -9,12 +9,6 @@ package org.centrale.projet.objet;
  *
  * @author muruowang
  */
-abstract class Potion extends Objet {
-
-    public Potion(Point2D pos) {
-        super(pos);
-    }
-
-    public abstract void Potion() ;
-    
+interface Combattant {
+    public void combattre(Creature c);
 }

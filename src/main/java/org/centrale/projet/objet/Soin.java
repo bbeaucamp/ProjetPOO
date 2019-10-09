@@ -47,4 +47,8 @@ public class Soin extends Potion {
         super.affiche();
         System.out.println("Elle rend " + this.getPtVieRendu() + " points de vie");
     }
+    
+    // Override abstract method Potion() in class Potion
+    public void Potion(){
+    }
 }

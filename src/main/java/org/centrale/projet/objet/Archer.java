@@ -12,7 +12,7 @@ import java.util.Random;
  *
  * @author muruowang
  */
-public class Archer extends Personnage {
+public class Archer extends Personnage implements Combattant {
 
     /**
      * Le nombre de flèches de l'archer. Chaque tentative d'attaque à distance
@@ -106,5 +106,7 @@ public class Archer extends Personnage {
             System.out.println("Attaque échouée");
         }
     }
+    
+
 
 }

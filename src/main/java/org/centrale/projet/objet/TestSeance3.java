@@ -16,7 +16,8 @@ public class TestSeance3 {
     public static void main(String[] args) {
         // testArrayList();
         // testParcoursConteneurs();
-       testCalculeTemps();
+        //  testCalculeTemps();
+       testcreeMondeAlea();
     }
 
     public static void testArrayList() {
@@ -42,5 +43,11 @@ public class TestSeance3 {
     public static void testCalculeTemps(){
              World w = new World();
             w.creeMondeAlea();
+    }
+    
+    public static void testcreeMondeAlea(){
+        World w = new World();
+        w.creeMondeAlea();
+    
     }
 }

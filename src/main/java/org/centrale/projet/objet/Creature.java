@@ -14,7 +14,7 @@ import java.util.Random;
  */
 
  
-public   class  Creature {
+abstract   class  Creature  extends ElementDeJeu implements Deplacable {
 
     /**
      * Les points de vie de la créature. A 0 points de vie, elle meurt.
@@ -162,5 +162,8 @@ public   class  Creature {
         int deplacementY = generateurAleatoire.nextInt(3) - 1;
         this.pos.translate(deplacementX, deplacementY);
     }
+    
+    public abstract void deplacer();
+    
 
 }

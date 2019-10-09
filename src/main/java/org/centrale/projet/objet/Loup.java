@@ -11,7 +11,7 @@ import java.util.Random;
  * Un loup du jeu World of ECN. C'est un monstre qui attaque au corps à corps.
  * @author muruowang
  */
-public class Loup extends Monstre {
+public class Loup extends Monstre implements Combattant  {
 
     public Loup(int ptVie, int pourcentageAtt, int pourcentagePar, int degAtt, int ptPar, Point2D pos) {
         super(ptVie, pourcentageAtt, pourcentagePar, degAtt, ptPar, pos);

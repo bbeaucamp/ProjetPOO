@@ -20,10 +20,10 @@ public class Mana extends Potion {
         this.ptManaRendu = ptManaRendu;
     }
 
-    public Mana() {
-        super();
-        this.ptManaRendu = 5;
-    }
+//    public Mana() {
+//        super();
+//        this.ptManaRendu = 5;
+//    }
 
     public int getPtManaRendu() {
         return ptManaRendu;
@@ -46,5 +46,9 @@ public class Mana extends Potion {
     public void affiche(){
         super.affiche();
         System.out.println("Elle rend " + this.getPtManaRendu() + " points de mana");
+    }
+    
+    // Override abstract method Potion() in class Potion
+    public void Potion(){
     }
 }

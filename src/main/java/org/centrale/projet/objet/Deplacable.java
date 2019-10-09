@@ -9,12 +9,8 @@ package org.centrale.projet.objet;
  *
  * @author muruowang
  */
-abstract class Potion extends Objet {
-
-    public Potion(Point2D pos) {
-        super(pos);
-    }
-
-    public abstract void Potion() ;
-    
+// Interface
+interface Deplacable {
+    // Interface abstract methods cannot have body
+    public void deplacer();
 }

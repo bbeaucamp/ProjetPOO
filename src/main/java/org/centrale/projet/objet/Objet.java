@@ -9,7 +9,7 @@ package org.centrale.projet.objet;
  *
  * @author muruowang
  */
-public class Objet {
+abstract class Objet extends ElementDeJeu {
     /**
      * La position de l'objet sur la carte.
      */
@@ -46,5 +46,7 @@ public class Objet {
     public void affiche() {
         System.out.println(this.nom + " se trouve en " + this.pos.toString());
     }
+    
+ 
     
 }

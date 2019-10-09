@@ -99,7 +99,6 @@ public class World {
         ArrayList<Point2D> positions = this.generePositionsAleatoires(nbPersonnages);
         for (Point2D p : positions) {
             Archer a = new Archer();
-
             a.setPos(p);
             this.listArchers.add(a);
         }
@@ -170,6 +169,7 @@ public class World {
     }
 
     public ArrayList<Point2D> generePositionsAleatoires(int nbPositions) {
+        
         // génération de nbPersonnages positions différentes
         ArrayList<Point2D> positions = new ArrayList<>();
         Random generateurAleatoire = new Random();
@@ -179,7 +179,7 @@ public class World {
         // On ajoute un point à positions dès lors qu'il n'existe pas déjà
         for (int i = 1; i < nbPositions; i++) {
             newPos = new Point2D(generateurAleatoire.nextInt(this.tailleMonde), generateurAleatoire.nextInt(this.tailleMonde));
-            while (positions.contains(newPos) && this.verfieDistanceMin(positions, newPos)) {
+            while (positions.contains(newPos) && this.verifierDistanceMin(positions, newPos)) {
                 newPos = new Point2D(generateurAleatoire.nextInt(this.tailleMonde), generateurAleatoire.nextInt(this.tailleMonde));
             }
             positions.add(newPos);
@@ -189,14 +189,12 @@ public class World {
         return positions;
     }
 
-    public boolean verfieDistanceMin(ArrayList<Point2D> positions, Point2D newPos) {
+    public boolean verifierDistanceMin(ArrayList<Point2D> positions, Point2D newPos) {
         boolean res = true;
         for (Point2D p : positions) {
             if (p.distance(newPos) < 3) {
                 res = false;
-
             }
-
         }
         return res;
     }

@@ -10,7 +10,7 @@ package org.centrale.projet.objet;
  * @author muruowang
  */
 // classe Lapion héritage calsee Monstre
-public class Lapin extends Monstre {
+public class Lapin extends Monstre  {
 
     public Lapin(int ptVie, int pourcentageAtt, int pourcentagePar, int degAtt, int ptPar, Point2D pos) {
         super(ptVie, pourcentageAtt, pourcentagePar, degAtt, ptPar, pos);
@@ -31,5 +31,7 @@ public class Lapin extends Monstre {
         super(10, 50, 20, 5, 2, new Point2D());
         
     }
+    
+    
 
 }

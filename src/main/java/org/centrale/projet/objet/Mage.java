@@ -12,7 +12,7 @@ import java.util.Random;
  *
  * @author muruowang
  */
-public class Mage extends Personnage {
+public class Mage extends Personnage  implements Combattant  {
 
     public Mage(String nom, int ptMana, int pourcentageMag, int pourcentageResistMag, int degMag, int distAttMax, int ptVie, int pourcentageAtt, int pourcentagePar, int degAtt, int ptPar, Point2D pos) {
         super(nom, ptMana, pourcentageMag, pourcentageResistMag, degMag, distAttMax, ptVie, pourcentageAtt, pourcentagePar, degAtt, ptPar, pos);

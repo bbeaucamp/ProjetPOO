@@ -5,29 +5,29 @@
  */
 package org.centrale.projet.objet;
 
-
 /**
- *Un personnage du jeu World of ECN.
+ * Un personnage du jeu World of ECN.
+ *
  * @author muruowang
  */
-public class   Personnage  extends Creature{
+abstract class Personnage extends Creature {
 
-/**
+    /**
      * Le nom du personnage.
      */
     private String nom;
     /**
-     * Les points de mana du personnage. Chaque tentative d'attaque magique 
+     * Les points de mana du personnage. Chaque tentative d'attaque magique
      * consomme un point de mana.
      */
     private int ptMana;
     /**
-     * Le pourcentage d'attaque magique du personnage. Détermine la chance de 
+     * Le pourcentage d'attaque magique du personnage. Détermine la chance de
      * réussir une attaque magique ou non.
      */
     private int pourcentageMag;
     /**
-     * Le pourcentage de résistance magique du personnage. Détermine la chance 
+     * Le pourcentage de résistance magique du personnage. Détermine la chance
      * de parer une attaque magique ou non.
      */
     private int pourcentageResistMag;
@@ -68,6 +68,7 @@ public class   Personnage  extends Creature{
 
     /**
      * Le constructeur de recopie. Crée une copie profonde du personnage.
+     *
      * @param p Le personnage à copier.
      */
     public Personnage(Personnage p) {
@@ -140,8 +141,9 @@ public class   Personnage  extends Creature{
         System.out.println("Pourcentage de résistance à la magie : " + this.pourcentageResistMag);
         System.out.println("Distance d'attaque maximale : " + this.distAttMax);
     }
-    
 
-    
-    
+    // Override abstract method deplacer() in Creature 
+    public void deplacer() {
+    }
+
 }
