@@ -20,10 +20,11 @@ public class Mana extends Potion {
         this.ptManaRendu = ptManaRendu;
     }
 
-//    public Mana() {
-//        super();
-//        this.ptManaRendu = 5;
-//    }
+ 
+    public Mana() {
+        super();
+        this.ptManaRendu = 5;
+    }
 
     public int getPtManaRendu() {
         return ptManaRendu;

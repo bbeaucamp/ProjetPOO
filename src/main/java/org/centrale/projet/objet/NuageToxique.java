@@ -16,8 +16,7 @@ public class NuageToxique extends Objet implements Deplacable, Combattant {
     public void deplacer() {
     }
 
-  
-    
+
     // Override method combattre(Creature c) in clasee Combattant
 
     /**
