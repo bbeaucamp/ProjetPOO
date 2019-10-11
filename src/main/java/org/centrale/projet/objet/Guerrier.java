@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -23,6 +23,7 @@ public class Guerrier extends Personnage implements Combattant  {
      * Le constructeur sans paramètres. Possède les valeurs par défaut d'un
      * Personnage, sauf pour : - nom : Guerrier, - ptVie : 120, - degAtt : 20
      */
+ 
     public Guerrier() {
         super();
         this.setPtVie(120);
@@ -45,6 +46,7 @@ public class Guerrier extends Personnage implements Combattant  {
      *
      * @param c La créature attaquée par le guerrier.
      */
+    @Override
     public void combattre(Creature c) {
 
         if (c.getPos().distance(this.getPos()) == 1) {

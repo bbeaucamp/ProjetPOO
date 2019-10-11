@@ -12,33 +12,31 @@ import java.util.Random;
  *
  * @author muruowang
  */
-
- 
-abstract   class  Creature  extends ElementDeJeu implements Deplacable {
+public abstract class Creature extends ElementDeJeu implements Deplacable {
 
     /**
      * Les points de vie de la créature. A 0 points de vie, elle meurt.
      */
     private int ptVie;
-    
+
     /**
      * Le pourcentage d'attaque de la créature. Détermine la chance de réussir
      * une attaque ou non.
      */
     private int pourcentageAtt;
-    
+
     /**
      * Le pourcentage de parade de la créature. Détermine la chance de réussir
      * une parade ou non.
      */
     private int pourcentagePar;
-    
+
     /**
      * Les dégâts d'attaque de la créature. Détermine les dégâts infligés lors
      * d'une attaque réussie.
      */
     private int degAtt;
-    
+
     /**
      * Les points de parade de la créature. Détermine la quantité de dégâts
      * equivés lors d'une parade réussie.
@@ -153,7 +151,7 @@ abstract   class  Creature  extends ElementDeJeu implements Deplacable {
      * Déplace une créature aléatoirement sur une case adjacente (les cases en
      * diagonale sont autorisées).
      */
-    public void deplace() {
+    public void deplacer() {
         Random generateurAleatoire = new Random();
         // nextInt(3) --> 0,1,2
         // nextInt(3) - 1 --> -1,0,1
@@ -162,8 +160,5 @@ abstract   class  Creature  extends ElementDeJeu implements Deplacable {
         int deplacementY = generateurAleatoire.nextInt(3) - 1;
         this.pos.translate(deplacementX, deplacementY);
     }
-    
- 
-    
 
 }

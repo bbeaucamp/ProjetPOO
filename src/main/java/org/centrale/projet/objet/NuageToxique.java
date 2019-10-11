@@ -5,25 +5,54 @@
  */
 package org.centrale.projet.objet;
 
+import java.util.*;
+
 /**
  *
  * @author muruowang
  */
-public class NuageToxique extends Objet implements Deplacable, Combattant {
+public  abstract class NuageToxique extends Objet implements Deplacable, Combattant {
 
-    // Override method depalcer() in class Deplaceble
-    @Override
-    public void deplacer() {
+
+    
+    public NuageToxique(String nom, Point2D pos) {
+        super(nom,pos);
+      
     }
 
+    public NuageToxique() {
+        super();
+          this.setNom("NuageToxique");
+    }
+
+    // Override method depalcer() in class Deplaceble
+    /**
+     * Déplace une créature aléatoirement sur une case adjacente (les cases en
+     * diagonale sont autorisées).
+     */
+    public void deplacer() {
+        Random generateurAleatoire = new Random();
+        // nextInt(3) --> 0,1,2
+        // nextInt(3) - 1 --> -1,0,1
+        // 3*3 = 9 possiblités
+        int deplacementX = generateurAleatoire.nextInt(3) - 1;
+        int deplacementY = generateurAleatoire.nextInt(3) - 1;
+      //  this.pos.translate(deplacementX, deplacementY);
+        this.getPos().translate(deplacementX, deplacementY);
+    }
 
     // Override method combattre(Creature c) in clasee Combattant
     /**
      *
-     * @param c
+     * @param c La créature attaquée par NuageToxique.
      */
-      @Override
-      public void combattre(Creature c) {
+    @Override
+    public void combattre(Creature c) {
     }
-;
+
+
+ 
+ 
+
+
 }

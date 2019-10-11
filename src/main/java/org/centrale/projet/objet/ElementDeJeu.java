@@ -9,12 +9,12 @@ package org.centrale.projet.objet;
  *
  * @author muruowang
  */
-abstract class ElementDeJeu {
+ public abstract class ElementDeJeu {
 
     /**
      * La position de l'objet sur la carte.
      */
-    public Point2D pos;
+    private Point2D pos;
     
    
 

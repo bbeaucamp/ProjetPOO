@@ -35,7 +35,7 @@ abstract class Objet extends ElementDeJeu {
     }
 
     public void affiche() {
-        System.out.println(this.nom + " se trouve en " + this.pos.toString());
+        System.out.println(this.nom + " se trouve en " + this.getPos().toString());
     }
 
 }

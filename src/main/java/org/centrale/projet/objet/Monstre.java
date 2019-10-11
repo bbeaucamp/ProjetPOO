@@ -6,11 +6,11 @@
 package org.centrale.projet.objet;
 
 /**
- * Un monstre du jeu World of ECN.
- * Un monstre du jeu World of ECN.
+ * Un monstre du jeu World of ECN. Un monstre du jeu World of ECN.
+ *
  * @author muruowang
  */
-abstract class Monstre extends Creature {
+public abstract class Monstre extends Creature {
 
     public Monstre(int ptVie, int pourcentageAtt, int pourcentagePar, int degAtt, int ptPar, Point2D pos) {
         super(ptVie, pourcentageAtt, pourcentagePar, degAtt, ptPar, pos);
@@ -32,9 +32,9 @@ abstract class Monstre extends Creature {
     public Monstre(Monstre m) {
         super(m);
     }
-    
+
     // Override abstract method deplacer() in Creature 
-    public void deplacer(){
+    public void deplacer() {
     }
 
 }

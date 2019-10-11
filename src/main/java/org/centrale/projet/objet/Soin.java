@@ -22,7 +22,7 @@ public class Soin extends Potion {
 
     public Soin() {
         super();
-        this.setNom("soin");
+        this.setNom("Soin");
         this.ptVieRendu = 20;
     }
 

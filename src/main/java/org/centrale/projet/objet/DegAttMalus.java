@@ -9,18 +9,8 @@ package org.centrale.projet.objet;
  *
  * @author muruowang
  */
- public  abstract class Potion extends Objet {
-    
-    public Potion(String nom, Point2D pos) {
-        super(nom, pos);
-        
+public class DegAttMalus extends Nourriture {
+
+    public void consummer(Personnage p) {
     }
-    
-    public Potion() {
-        super();
-        this.setNom("Portion");
-    }
-    
- 
-    
 }

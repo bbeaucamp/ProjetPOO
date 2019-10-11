@@ -67,7 +67,7 @@ public class Archer extends Personnage implements Combattant {
      *
      * @param c La créature attaquée par l'archer.
      */
-    @Override
+
     public void combattre(Creature c) {
         if (c.getPos().distance(this.getPos()) > 1
                 && c.getPos().distance(this.getPos()) < this.getDistAttMax()  // distance Attaque maximum

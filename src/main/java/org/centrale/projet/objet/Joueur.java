@@ -11,4 +11,6 @@ package org.centrale.projet.objet;
  */
 public class Joueur {
     
+    private Personnage personne;
+    
 }

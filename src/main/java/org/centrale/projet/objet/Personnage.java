@@ -10,7 +10,7 @@ package org.centrale.projet.objet;
  *
  * @author muruowang
  */
-abstract class Personnage extends Creature {
+ public abstract class Personnage extends Creature {
 
     /**
      * Le nom du personnage.
