@@ -5,7 +5,7 @@
  */
 package org.centrale.projet.objet;
 
-import java.util.Random;
+import java.util.LinkedList;
 
 /**
  * Une entité de base du jeu World of ECN.
@@ -148,17 +148,25 @@ public abstract class Creature extends ElementDeJeu implements Deplacable {
     }
 
     /**
-     * Déplace une créature aléatoirement sur une case adjacente (les cases en
+     * Translate une créature d'une quantité spécifiée (les cases en
      * diagonale sont autorisées).
+     * @param dx Nombre de cases à translater en x
+     * @param dy Nombre de cases à translater en y
+     * @param positionsOccupees Liste des positions sur lesquelles la créature ne
+     * peut pas se déplacer.
+     * @param dimension La dimension du plateau de jeu (supposé carré).
      */
-    public void deplacer() {
-        Random generateurAleatoire = new Random();
-        // nextInt(3) --> 0,1,2
-        // nextInt(3) - 1 --> -1,0,1
-        // 3*3 = 9 possiblités
-        int deplacementX = generateurAleatoire.nextInt(3) - 1;
-        int deplacementY = generateurAleatoire.nextInt(3) - 1;
-        this.pos.translate(deplacementX, deplacementY);
+    public void deplacer(int dx, int dy, LinkedList<Point2D> positionsOccupees, int dimension) {
+        Point2D nouvellePosition = new Point2D(this.getPos());
+        nouvellePosition.translate(dx, dy);
+        
+        if (nouvellePosition.getX() >= 0 && nouvellePosition.getX() < dimension
+                && nouvellePosition.getY() >= 0 && nouvellePosition.getY() < dimension
+                && !positionsOccupees.contains(nouvellePosition)){
+            this.getPos().translate(dx, dy);
+        } else {
+            System.out.println("Déplacement impossible ! La case est occupée.");
+        }
     }
 
 }

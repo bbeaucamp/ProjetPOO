@@ -5,6 +5,7 @@
  */
 package org.centrale.projet.objet;
 
+import java.util.LinkedList;
 import java.util.Random;
 
 /**
@@ -15,9 +16,11 @@ import java.util.Random;
  */
 public class Guerrier extends Personnage implements Combattant  {
 
-    public Guerrier(String nom, int ptMana, int pourcentageMag, int pourcentageResistMag, int degMag, int distAttMax, int ptVie, int pourcentageAtt, int pourcentagePar, int degAtt, int ptPar, Point2D pos) {
-        super(nom, ptMana, pourcentageMag, pourcentageResistMag, degMag, distAttMax, ptVie, pourcentageAtt, pourcentagePar, degAtt, ptPar, pos);
+    public Guerrier(String nom, int ptMana, int pourcentageMag, int pourcentageResistMag, int degMag, int distAttMax, LinkedList<Nourriture> listeNourriture, int ptVie, int pourcentageAtt, int pourcentagePar, int degAtt, int ptPar, Point2D pos) {
+        super(nom, ptMana, pourcentageMag, pourcentageResistMag, degMag, distAttMax, listeNourriture, ptVie, pourcentageAtt, pourcentagePar, degAtt, ptPar, pos);
     }
+
+    
 
     /**
      * Le constructeur sans paramètres. Possède les valeurs par défaut d'un

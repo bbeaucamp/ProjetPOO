@@ -5,6 +5,8 @@
  */
 package org.centrale.projet.objet;
 
+import java.util.LinkedList;
+
 /**
  *
  * @author muruowang
@@ -13,5 +15,5 @@ package org.centrale.projet.objet;
 interface Deplacable {
     
     // Interface abstract methods cannot have body
-    public void deplacer();
+    public void deplacer(int dx, int dy, LinkedList<Point2D> positionsOccupees, int dimension);
 }

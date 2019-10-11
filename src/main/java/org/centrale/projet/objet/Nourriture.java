@@ -20,6 +20,12 @@ public abstract class Nourriture {
         this.quantite = quantite;
         this.consomme = false;
     }
+    
+    public Nourriture(){
+        this.nTours = 2;
+        this.quantite = 3;
+        this.consomme = false;
+    }
 
     public int getnTours() {
         return nTours;
@@ -45,8 +51,10 @@ public abstract class Nourriture {
         this.consomme = consomme;
     }
 
-    public void consommer(Personnage p) {
-
-    }
+    /**
+     * Enlève ou ajoute 'quantite' à l'attribut concerné deu personnage p.
+     * @param p Le personnage qui consomme la nourriture.
+     */
+    public abstract void consommer(Personnage p);
 
 }

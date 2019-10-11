@@ -5,15 +5,19 @@
  */
 package org.centrale.projet.objet;
 
+import java.util.LinkedList;
+
 /**
  * Un paysan du jeu World of ECN.
  * @author muruowang
  */
 public class Paysan extends Personnage {
 
-    public Paysan(String nom, int ptMana, int pourcentageMag, int pourcentageResistMag, int degMag, int distAttMax, int ptVie, int pourcentageAtt, int pourcentagePar, int degAtt, int ptPar, Point2D pos) {
-        super(nom, ptMana, pourcentageMag, pourcentageResistMag, degMag, distAttMax, ptVie, pourcentageAtt, pourcentagePar, degAtt, ptPar, pos);
+    public Paysan(String nom, int ptMana, int pourcentageMag, int pourcentageResistMag, int degMag, int distAttMax, LinkedList<Nourriture> listeNourriture, int ptVie, int pourcentageAtt, int pourcentagePar, int degAtt, int ptPar, Point2D pos) {
+        super(nom, ptMana, pourcentageMag, pourcentageResistMag, degMag, distAttMax, listeNourriture, ptVie, pourcentageAtt, pourcentagePar, degAtt, ptPar, pos);
     }
+
+    
         
     /**
      * Le constructeur de recopie. Crée une copie profonde du paysan.

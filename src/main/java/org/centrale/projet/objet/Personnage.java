@@ -5,6 +5,8 @@
  */
 package org.centrale.projet.objet;
 
+import java.util.LinkedList;
+
 /**
  * Un personnage du jeu World of ECN.
  *
@@ -41,8 +43,13 @@ package org.centrale.projet.objet;
      * maximale à laquelle le personnage peut lancer une attaque.
      */
     private int distAttMax;
+    
+    /**
+     * La liste des aliments en train de donner un bonus ou un malus au personnage.
+     */
+    private LinkedList<Nourriture> listeNourriture;
 
-    public Personnage(String nom, int ptMana, int pourcentageMag, int pourcentageResistMag, int degMag, int distAttMax, int ptVie, int pourcentageAtt, int pourcentagePar, int degAtt, int ptPar, Point2D pos) {
+    public Personnage(String nom, int ptMana, int pourcentageMag, int pourcentageResistMag, int degMag, int distAttMax, LinkedList<Nourriture> listeNourriture, int ptVie, int pourcentageAtt, int pourcentagePar, int degAtt, int ptPar, Point2D pos) {
         super(ptVie, pourcentageAtt, pourcentagePar, degAtt, ptPar, pos);
         this.nom = nom;
         this.ptMana = ptMana;
@@ -50,6 +57,7 @@ package org.centrale.projet.objet;
         this.pourcentageResistMag = pourcentageResistMag;
         this.degMag = degMag;
         this.distAttMax = distAttMax;
+        this.listeNourriture = listeNourriture;
     }
 
     /**
@@ -64,6 +72,7 @@ package org.centrale.projet.objet;
         this.pourcentageResistMag = 30;
         this.degMag = 10;
         this.distAttMax = 1;
+        this.listeNourriture = new LinkedList<>();
     }
 
     /**

@@ -12,33 +12,50 @@ import java.util.*;
  * @author muruowang
  */
 public  abstract class NuageToxique extends Objet implements Deplacable, Combattant {
-
+    
+    /**
+     * Les dégâts infligés par le nuage à une créature se trouvant sur la même case.
+     */
+    private int degAtt;
 
     
-    public NuageToxique(String nom, Point2D pos) {
+    public NuageToxique(String nom, Point2D pos, int degAtt) {
         super(nom,pos);
-      
+        this.degAtt = degAtt;
     }
 
     public NuageToxique() {
         super();
-          this.setNom("NuageToxique");
+        this.setNom("NuageToxique");
+        this.degAtt = 4;
     }
 
-    // Override method depalcer() in class Deplaceble
+    public int getDegAtt() {
+        return degAtt;
+    }
+
+    public void setDegAtt(int degAtt) {
+        this.degAtt = degAtt;
+    }
+
     /**
-     * Déplace une créature aléatoirement sur une case adjacente (les cases en
+     * Translate le nuage toxique d'une quantité spécifiée (les cases en
      * diagonale sont autorisées).
+     * @param dx Nombre de cases à translater en x
+     * @param dy Nombre de cases à translater en y
+     * @param positionsOccupees Inutilisée ici car le nuage peut se déplacer partout.
+     * @param dimension La dimension du plateau de jeu (supposé carré).
      */
-    public void deplacer() {
-        Random generateurAleatoire = new Random();
-        // nextInt(3) --> 0,1,2
-        // nextInt(3) - 1 --> -1,0,1
-        // 3*3 = 9 possiblités
-        int deplacementX = generateurAleatoire.nextInt(3) - 1;
-        int deplacementY = generateurAleatoire.nextInt(3) - 1;
-      //  this.pos.translate(deplacementX, deplacementY);
-        this.getPos().translate(deplacementX, deplacementY);
+    public void deplacer(int dx, int dy, LinkedList<Point2D> positionsOccupees, int dimension) {
+        Point2D nouvellePosition = this.getPos();
+        nouvellePosition.translate(dx, dy);
+        if (nouvellePosition.getX() >= 0 && nouvellePosition.getX() < dimension
+                && nouvellePosition.getY() >= 0 && nouvellePosition.getY() < dimension){
+            this.getPos().translate(dx, dy);
+        } else {
+            System.out.println("Déplacement impossible ! La case est hors du plateau.");
+        }
+        
     }
 
     // Override method combattre(Creature c) in clasee Combattant
@@ -48,6 +65,9 @@ public  abstract class NuageToxique extends Objet implements Deplacable, Combatt
      */
     @Override
     public void combattre(Creature c) {
+        if (this.getPos().equals(c.getPos())) {
+            c.setPtVie(c.getPtVie() - this.getDegAtt());
+        }
     }
 
 
