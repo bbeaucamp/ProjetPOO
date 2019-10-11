@@ -11,6 +11,7 @@ package org.centrale.projet.objet;
  */
 // Interface
 interface Deplacable {
+    
     // Interface abstract methods cannot have body
     public void deplacer();
 }
