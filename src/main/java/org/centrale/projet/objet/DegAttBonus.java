@@ -11,8 +11,8 @@ package org.centrale.projet.objet;
  */
 public class DegAttBonus extends Nourriture {
 
-    public DegAttBonus(int nTours, int quantite) {
-        super(nTours, quantite);
+    public DegAttBonus(int nTours, int quantite, String nom, Point2D pos) {
+        super(nTours, quantite, nom, pos);
     }
 
     public DegAttBonus() {
@@ -23,8 +23,8 @@ public class DegAttBonus extends Nourriture {
             p.setDegAtt(p.getDegAtt() + this.getQuantite());
         }
         
-        if (this.getnTours() > 0) {
-            this.setnTours(this.getnTours() - 1);
+        if (this.getNTours() > 0) {
+            this.setNTours(this.getNTours() - 1);
         } else {
             p.setDegAtt(p.getDegAtt() - this.getQuantite()); // Le bonus se termine
         }

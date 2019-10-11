@@ -11,8 +11,8 @@ package org.centrale.projet.objet;
  */
 public class DegAttMalus extends Nourriture {
 
-    public DegAttMalus(int nTours, int quantite) {
-        super(nTours, quantite);
+    public DegAttMalus(int nTours, int quantite, String nom, Point2D pos) {
+        super(nTours, quantite, nom, pos);
     }
 
     public DegAttMalus() {
@@ -28,8 +28,8 @@ public class DegAttMalus extends Nourriture {
             }
         }
         
-        if (this.getnTours() > 0) {
-            this.setnTours(this.getnTours() - 1);
+        if (this.getNTours() > 0) {
+            this.setNTours(this.getNTours() - 1);
         } else {
             p.setDegAtt(p.getDegAtt() + this.getQuantite()); // Le malus se termine
         }

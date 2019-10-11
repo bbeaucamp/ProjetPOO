@@ -11,6 +11,21 @@ package org.centrale.projet.objet;
  */
 public class Joueur {
     
-    private Personnage personne;
+    private Personnage perso;
+
+    public Joueur(Personnage perso) {
+        this.perso = perso;
+    }  
+
+    public Joueur() {
+    }
+
+    public Personnage getPerso() {
+        return perso;
+    }
+
+    public void setPerso(Personnage perso) {
+        this.perso = perso;
+    }
     
 }

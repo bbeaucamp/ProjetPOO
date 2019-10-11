@@ -88,6 +88,7 @@ import java.util.LinkedList;
         this.pourcentageResistMag = p.pourcentageResistMag;
         this.degMag = p.degMag;
         this.distAttMax = p.distAttMax;
+        this.listeNourriture = new LinkedList<>(p.listeNourriture);
     }
 
     public String getNom() {
@@ -136,6 +137,14 @@ import java.util.LinkedList;
 
     public void setDistAttMax(int distAttMax) {
         this.distAttMax = distAttMax;
+    }
+
+    public LinkedList<Nourriture> getListeNourriture() {
+        return listeNourriture;
+    }
+
+    public void setListeNourriture(LinkedList<Nourriture> listeNourriture) {
+        this.listeNourriture = listeNourriture;
     }
 
     /**

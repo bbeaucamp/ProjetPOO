@@ -11,7 +11,7 @@ import java.util.*;
  *
  * @author muruowang
  */
-public  abstract class NuageToxique extends Objet implements Deplacable, Combattant {
+public class NuageToxique extends Objet implements Deplacable, Combattant {
     
     /**
      * Les dégâts infligés par le nuage à une créature se trouvant sur la même case.

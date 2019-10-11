@@ -1,0 +1,22 @@
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'/Users/Benjamin/Documents/INFO/OBJET/TP/ProjetPOO/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2019. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'/Users/Benjamin/Documents/INFO/OBJET/TP/ProjetPOO/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'ProjetTP 0.1 API'
+-linkoffline
+'https://docs.oracle.com/javase/8/docs/api' '/Users/Benjamin/Documents/INFO/OBJET/TP/ProjetPOO/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'ProjetTP 0.1 API'
