@@ -10,5 +10,31 @@ package org.centrale.projet.objet;
  * @author muruowang
  */
 abstract class ElementDeJeu {
+
+    /**
+     * La position de l'objet sur la carte.
+     */
+    public Point2D pos;
     
+   
+
+    public ElementDeJeu(Point2D pos) {
+        this.pos = pos;
+    }
+
+    public ElementDeJeu() {
+        this.pos = new Point2D();
+        
+    }
+    
+    
+    
+    public Point2D getPos() {
+        return pos;
+    }
+
+    public void setPos(Point2D pos) {
+        this.pos = pos;
+    }
+
 }

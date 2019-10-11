@@ -10,43 +10,32 @@ package org.centrale.projet.objet;
  * @author muruowang
  */
 abstract class Objet extends ElementDeJeu {
-    /**
-     * La position de l'objet sur la carte.
-     */
-    private Point2D pos;
+
     /**
      * Le nom de l'objet
      */
     private String nom;
 
-    public Objet(Point2D pos) {
-        this.pos = pos;
-    }
-
-    public Objet() {
-        this.pos = new Point2D();
-    }
-
-    public Point2D getPos() {
-        return pos;
-    }
-
-    public void setPos(Point2D pos) {
-        this.pos = pos;
-    }
-
     public String getNom() {
         return nom;
     }
 
+    public Objet(String nom, Point2D pos) {
+        super(pos);
+        this.nom = nom;
+    }
+
+    public Objet() {
+        this.nom = "Objet";
+    }
+ 
+        
     public void setNom(String nom) {
         this.nom = nom;
     }
-    
+
     public void affiche() {
         System.out.println(this.nom + " se trouve en " + this.pos.toString());
     }
-    
- 
-    
+
 }

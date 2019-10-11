@@ -9,18 +9,6 @@ package org.centrale.projet.objet;
  *
  * @author muruowang
  */
-abstract class Potion extends Objet {
-    
-    public Potion(String nom, Point2D pos) {
-        super(nom, pos);
-        
-    }
-    
-    public Potion() {
-        super();
-        this.setNom("Portion");
-    }
-    
- 
+public class Joueur {
     
 }

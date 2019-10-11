@@ -47,6 +47,7 @@ public class Mage extends Personnage  implements Combattant  {
      *
      * @param c La créature attaquée par le loup.
      */
+    @Override
     public void combattre(Creature c) {
         if (c.getPos().distance(this.getPos()) >= 1
                 && c.getPos().distance(this.getPos()) < this.getDistAttMax()

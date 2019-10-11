@@ -48,6 +48,7 @@ public class Loup extends Monstre implements Combattant  {
      *
      * @param c La créature attaquée par le loup.
      */
+    @Override
     public void combattre(Creature c) {
 
         if (c.getPos().distance(this.getPos()) == 1) {

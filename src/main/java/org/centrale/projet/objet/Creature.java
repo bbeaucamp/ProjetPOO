@@ -163,7 +163,7 @@ abstract   class  Creature  extends ElementDeJeu implements Deplacable {
         this.pos.translate(deplacementX, deplacementY);
     }
     
-    public abstract void deplacer();
+ 
     
 
 }

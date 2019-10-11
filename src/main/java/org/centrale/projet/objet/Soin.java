@@ -15,13 +15,14 @@ public class Soin extends Potion {
      */
     private int ptVieRendu;
 
-    public Soin(int ptVieRendu, Point2D pos) {
-        super(pos);
-        this.ptVieRendu = ptVieRendu;
+    public Soin(String nom, Point2D pos) {
+        super(nom,pos);
+        
     }
 
     public Soin() {
         super();
+        this.setNom("soin");
         this.ptVieRendu = 20;
     }
 
@@ -48,7 +49,5 @@ public class Soin extends Potion {
         System.out.println("Elle rend " + this.getPtVieRendu() + " points de vie");
     }
     
-    // Override abstract method Potion() in class Potion
-    public void Potion(){
-    }
+ 
 }
