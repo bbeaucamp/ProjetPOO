@@ -16,8 +16,8 @@ public class TestSeance3 {
     public static void main(String[] args) {
         // testArrayList();
         // testParcoursConteneurs();
-        //  testCalculeTemps();
-       testcreeMondeAlea();
+        // testCalculeTemps();
+        // testcreeMondeAlea();
     }
 
     public static void testArrayList() {

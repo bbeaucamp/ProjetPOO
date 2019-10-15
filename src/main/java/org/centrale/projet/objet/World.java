@@ -38,7 +38,7 @@ public class World {
     /**
      * La taille d'un côté du monde, supposé carré.
      */
-    private int tailleMonde;
+    private  int tailleMonde;
 
     /**
      * Le nombre maximal de créatures d'une sous-classe (Archer, Paysan, Loup,
