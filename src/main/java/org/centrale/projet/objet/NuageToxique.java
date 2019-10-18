@@ -46,12 +46,10 @@ public class NuageToxique extends Objet implements Deplacable, Combattant {
      * @param positionsOccupees Inutilisée ici car le nuage peut se déplacer partout.
      * @param dimension La dimension du plateau de jeu (supposé carré).
      */
-    public void deplacer(int dx, int dy, LinkedList<Point2D> positionsOccupees, int dimension) {
-        Point2D nouvellePosition = this.getPos();
-        nouvellePosition.translate(dx, dy);
+    public void deplacer(Point2D nouvellePosition, LinkedList<Point2D> positionsOccupees, int dimension) {
         if (nouvellePosition.getX() >= 0 && nouvellePosition.getX() < dimension
                 && nouvellePosition.getY() >= 0 && nouvellePosition.getY() < dimension){
-            this.getPos().translate(dx, dy);
+            this.setPos(nouvellePosition);
         } else {
             System.out.println("Déplacement impossible ! La case est hors du plateau.");
         }

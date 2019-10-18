@@ -35,7 +35,7 @@ public class TestSeance6 {
         Point2D newPos = new Point2D(posJoueur);
         newPos.translate(0,1);
         if (!w.getPositionsOccupees().contains(newPos)) {
-            listCreatures.get(0).setPos(newPos);
+            listCreatures.get(0).setPos(newPos); // On utilise setPos plutôt que deplacer pour les tests
         }
         newPos = new Point2D(posJoueur);
         newPos.translate(-1,-1);

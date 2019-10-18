@@ -388,7 +388,7 @@ public class World {
                         input = new Scanner(System.in);
                         choixDeplacement = input.nextInt();
                     }
-                    j.getPerso().setPos(deplacementsAutorises.get(choixDeplacement));
+                    j.getPerso().deplacer(deplacementsAutorises.get(choixDeplacement), this.getPositionsOccupees(), this.tailleMonde);
                 } else {
                     System.out.println("Il n'y a aucune position atteignable.");
                 }

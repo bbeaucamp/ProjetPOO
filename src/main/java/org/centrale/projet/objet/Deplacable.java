@@ -15,5 +15,5 @@ import java.util.LinkedList;
 interface Deplacable {
     
     // Interface abstract methods cannot have body
-    public void deplacer(int dx, int dy, LinkedList<Point2D> positionsOccupees, int dimension);
+    public void deplacer(Point2D nouvellePosition, LinkedList<Point2D> positionsOccupees, int dimension);
 }

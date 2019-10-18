@@ -156,16 +156,14 @@ public abstract class Creature extends ElementDeJeu implements Deplacable {
      * peut pas se déplacer.
      * @param dimension La dimension du plateau de jeu (supposé carré).
      */
-    public void deplacer(int dx, int dy, LinkedList<Point2D> positionsOccupees, int dimension) {
-        Point2D nouvellePosition = new Point2D(this.getPos());
-        nouvellePosition.translate(dx, dy);
+    public void deplacer(Point2D nouvellePosition, LinkedList<Point2D> positionsOccupees, int dimension) {
         
         if (nouvellePosition.getX() >= 0 && nouvellePosition.getX() < dimension
                 && nouvellePosition.getY() >= 0 && nouvellePosition.getY() < dimension
                 && !positionsOccupees.contains(nouvellePosition)){
-            this.getPos().translate(dx, dy);
+            this.setPos(nouvellePosition);
         } else {
-            System.out.println("Déplacement impossible ! La case est occupée.");
+            System.out.println("Déplacement impossible ! La case est occupée ou hors des limites.");
         }
     }
 
