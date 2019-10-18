@@ -66,10 +66,11 @@ public class ChargementPartie {
                 }
                 ligne = this.fichier.readLine();
             }
+            this.fichier.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        
         return w;
     }
 
