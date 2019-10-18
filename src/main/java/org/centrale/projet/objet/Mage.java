@@ -7,6 +7,7 @@ package org.centrale.projet.objet;
 
 import java.util.LinkedList;
 import java.util.Random;
+import java.util.StringTokenizer;
 
 /**
  * Un mage du jeu World of ECN. C'est un personnage qui attaque à distance.
@@ -46,6 +47,26 @@ public class Mage extends Personnage  implements Combattant  {
         super(m);
     }
 
+          public static Mage fromString(String params){
+        StringTokenizer tokenizer = new StringTokenizer(params, " ");
+        // passer nom
+        tokenizer.nextToken();
+        return new Mage( tokenizer.nextToken(),
+                Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                new LinkedList<Nourriture>(),
+                Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                Point2D.fromString(tokenizer.nextToken()));
+    }
+    
+    
     /**
      * Méthode pour le combat à distance. Ne marche que si la distance entre
      * l'attaquant et la créature est égale à 1.

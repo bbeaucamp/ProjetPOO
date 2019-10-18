@@ -6,6 +6,7 @@
 package org.centrale.projet.objet;
 
 import java.util.LinkedList;
+import java.util.StringTokenizer;
 
 /**
  * Un paysan du jeu World of ECN.
@@ -28,6 +29,8 @@ public class Paysan extends Personnage {
     }
 
     
+
+    
         /**
      * Le constructeur sans paramètres. Possède les valeurs par défaut d'un 
      * Personnage, sauf pour :
@@ -36,6 +39,26 @@ public class Paysan extends Personnage {
     public Paysan() {
         super();
        this.setNom("Paysan");
+    }
+    
+    
+          public static Paysan fromString(String params){
+        StringTokenizer tokenizer = new StringTokenizer(params, " ");
+        // passer nom
+        tokenizer.nextToken();
+        return new Paysan( tokenizer.nextToken(),
+                Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                new LinkedList<Nourriture>(),
+                Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                Point2D.fromString(tokenizer.nextToken()));
     }
 
 }

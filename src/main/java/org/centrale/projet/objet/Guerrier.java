@@ -7,6 +7,7 @@ package org.centrale.projet.objet;
 
 import java.util.LinkedList;
 import java.util.Random;
+import java.util.StringTokenizer;
 
 /**
  * Un guerrier du jeu World of ECN. C'est un personnage qui attaque au corps à
@@ -44,6 +45,26 @@ public class Guerrier extends Personnage implements Combattant  {
         super(g);
     }
 
+      public static Guerrier fromString(String params){
+        StringTokenizer tokenizer = new StringTokenizer(params, " ");
+        // passer nom
+        tokenizer.nextToken();
+        return new Guerrier( tokenizer.nextToken(),
+                Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                new LinkedList<Nourriture>(),
+                Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                Point2D.fromString(tokenizer.nextToken()));
+    }
+    
+    
     /**
      * Méthode pour le combat au coprs à corps. Ne marche que si la distance
      * entre l'attaquant et la créature est égale à 1.

@@ -7,6 +7,7 @@ package org.centrale.projet.objet;
 
 import java.util.LinkedList;
 import java.util.Random;
+import java.util.StringTokenizer;
 
 /**
  * Un archer du jeu World of ECN. C'est un personnage qui attaque à distance.
@@ -64,6 +65,31 @@ public class Archer extends Personnage implements Combattant {
         System.out.println("Nombre de flèches  " + this.nbFleches);
     }
 
+    /**
+     *
+     * @param params Les parametres dans le constructeur "public Archer()"
+     * @return
+     */
+    public static Archer fromString(String params){
+        StringTokenizer tokenizer = new StringTokenizer(params, " ");
+        // passer nom
+        tokenizer.nextToken();
+        return new Archer(Integer.parseInt(tokenizer.nextToken()),
+              tokenizer.nextToken(),
+                Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                new LinkedList<Nourriture>(),
+                Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                Point2D.fromString(tokenizer.nextToken()));
+    }
+    
     /**
      * Méthode pour le combat à distance. Ne marche que si la distance entre
      * l'attaquant et la créature est > 1. Retire une flèche à l'attaquant.
