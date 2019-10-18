@@ -8,25 +8,25 @@ package org.centrale.projet.objet;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.lang.reflect.Method;
+import java.util.StringTokenizer;
 
 /**
  *
  * @author muruowang
  */
-
 public class ChargementPartie {
-    
+
     /**
-     *Le nom du fichier de sauvegarde à charger.
+     * Le nom du fichier de sauvegarde à charger.
      */
     private String nomFiche;
     private BufferedReader fichier;
 
     public ChargementPartie(String nomFiche) throws FileNotFoundException {
         this.nomFiche = nomFiche;
-        this.fichier =   new BufferedReader(new FileReader(nomFiche));
-         lecture();
-      
+        this.fichier = new BufferedReader(new FileReader(nomFiche));
+
     }
 
     public String getNomFiche() {
@@ -37,30 +37,38 @@ public class ChargementPartie {
         this.nomFiche = nomFiche;
     }
 
-    
-//        public static void main(String args[]) throws FileNotFoundException {
-//        ChargementPartie testBufferedReader = new ChargementPartie("Sauvegarde-WoE.txt");
-//    }
-
-    private void lecture() {
+    public World chargerPartie() {
+        World w = new World();
+        String ligne;
+        StringTokenizer tokenizer;
+        String premierMot;
+        
         try {
-            String ligne;
             ligne = this.fichier.readLine();
             while (ligne != null) {
-                System.out.println(ligne);
-                ligne = this.fichier.readLine();
+                tokenizer = new StringTokenizer(ligne, " ");
+                premierMot = tokenizer.nextToken();
+                if (premierMot.equals("tailleMonde")) {
+                    w.setTailleMonde(Integer.parseInt(tokenizer.nextToken()));
+                } else { // Une classe
+                    Class classeElementJeu = Class.forName(premierMot);
+                    Method fromString = classeElementJeu.getMethod("fromString", String.class);
+                    Object elementJeu = fromString.invoke(null, ligne);
+                    // On décide où doit être stocké l'élément de jeu
+                    if (elementJeu instanceof Creature){
+                        w.getListeCreatures().add((Creature) elementJeu);
+                    } else if (elementJeu instanceof Objet){
+                        w.getListeObjets().add((Objet) elementJeu);
+                    } else { // intanceof Joueur
+                        w.getListeJoueurs().add((Joueur) elementJeu);
+                    }
+                }
             }
-
-            fichier.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-    
-    public World chargerPartie(World w){
-   
+
         return w;
     }
 
-    
 }
