@@ -89,7 +89,20 @@ public class Archer extends Personnage implements Combattant {
                 Integer.parseInt(tokenizer.nextToken()),
                 Point2D.fromString(tokenizer.nextToken()));
     }
-    
+    //int nbFleches, String nom, int ptMana, int pourcentageMag, 
+    //int pourcentageResistMag, int degMag, int distAttMax, LinkedList<Nourriture> listeNourriture, int ptVie, 
+    //int pourcentageAtt, int pourcentagePar, int degAtt, int ptPar, Point2D pos)
+      public String toString(){
+      String rse;
+      rse = "Archer "+ this.getNbFleches()+ " "+
+              this.getNom()+ " "+ this.getPtMana()+ " "+ this.getPourcentageMag()+ " "
+              + this.getPourcentageResistMag()+ " "+this.getDegMag()+ " "+this.getDistAttMax()+" "
+              +this.getPtVie() +" "+ this.getPourcentageAtt()+" "+this.getPourcentagePar()+" "
+              +this.getDegAtt() + " " + this.getPtPar()+ " "+ this.getPos().toString();
+              
+      return rse;
+      
+      }
     /**
      * Méthode pour le combat à distance. Ne marche que si la distance entre
      * l'attaquant et la créature est > 1. Retire une flèche à l'attaquant.

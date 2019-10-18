@@ -14,18 +14,16 @@ import java.util.StringTokenizer;
  *
  * @author muruowang
  */
-public class Mage extends Personnage  implements Combattant  {
+public class Mage extends Personnage implements Combattant {
 
     public Mage(String nom, int ptMana, int pourcentageMag, int pourcentageResistMag, int degMag, int distAttMax, LinkedList<Nourriture> listeNourriture, int ptVie, int pourcentageAtt, int pourcentagePar, int degAtt, int ptPar, Point2D pos) {
         super(nom, ptMana, pourcentageMag, pourcentageResistMag, degMag, distAttMax, listeNourriture, ptVie, pourcentageAtt, pourcentagePar, degAtt, ptPar, pos);
     }
 
-   
-
     /**
      * Le constructeur sans paramètres. Possède les valeurs par défaut d'un
-     * Personnage, sauf pour : nom : Mage, degMag , ptMana,
-     * pourcentageMag, distAttMax et ptPar.
+     * Personnage, sauf pour : nom : Mage, degMag , ptMana, pourcentageMag,
+     * distAttMax et ptPar.
      */
     public Mage() {
         super();
@@ -47,11 +45,11 @@ public class Mage extends Personnage  implements Combattant  {
         super(m);
     }
 
-          public static Mage fromString(String params){
+    public static Mage fromString(String params) {
         StringTokenizer tokenizer = new StringTokenizer(params, " ");
         // passer nom
         tokenizer.nextToken();
-        return new Mage( tokenizer.nextToken(),
+        return new Mage(tokenizer.nextToken(),
                 Integer.parseInt(tokenizer.nextToken()),
                 Integer.parseInt(tokenizer.nextToken()),
                 Integer.parseInt(tokenizer.nextToken()),
@@ -65,8 +63,18 @@ public class Mage extends Personnage  implements Combattant  {
                 Integer.parseInt(tokenizer.nextToken()),
                 Point2D.fromString(tokenizer.nextToken()));
     }
-    
-    
+
+    public String toString() {
+        String rse;
+        rse = "Mage " + this.getNom() + " " + this.getPtMana() + " " + this.getPourcentageMag() + " "
+                + this.getPourcentageResistMag() + " " + this.getDegMag() + " " + this.getDistAttMax() + " "
+                + this.getPtVie() + " " + this.getPourcentageAtt() + " " + this.getPourcentagePar() + " "
+                + this.getDegAtt() + " " + this.getPtPar() + " " + this.getPos().toString();
+
+        return rse;
+
+    }
+
     /**
      * Méthode pour le combat à distance. Ne marche que si la distance entre
      * l'attaquant et la créature est égale à 1.
