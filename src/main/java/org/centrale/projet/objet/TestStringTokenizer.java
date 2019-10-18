@@ -13,7 +13,7 @@ import java.util.StringTokenizer;
 public class TestStringTokenizer {
 
     public static void main(String args[]) {
-        String test = "Largeur 10";
+        String test = "Largeur 10,10";
         String delimiteurs = " ,.;";
 
         // on declare un 'tokenizer' qui va decouper 
