@@ -81,6 +81,14 @@ public class World {
         this.deplacementsUnitaires.add(new Point2D(1, -1));
     }
 
+    public void setMaxCrea(int maxCrea) {
+        this.maxCrea = maxCrea;
+    }
+
+    public void setMaxObj(int maxObj) {
+        this.maxObj = maxObj;
+    }
+
     public List<Creature> getListeCreatures() {
         return listeCreatures;
     }

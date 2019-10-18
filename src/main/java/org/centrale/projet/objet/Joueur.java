@@ -49,4 +49,10 @@ public class Joueur {
         this.perso.affiche();
     }
     
+    public String toString(){
+        String res;
+        res = "Joueur " + this.perso.toString();
+        return res;
+    }
+    
 }

@@ -18,9 +18,25 @@ import java.util.StringTokenizer;
 public class TestSeance6 {
     
     public static void main(String[] args){
-        testChargementPartie();
+        testSauvegardePartie();
+        //testChargementPartie();
         //testTourDeJeuJoueurHumain();
         //testDeplacementsPossibles();
+    }
+    
+    public static void testSauvegardePartie() {
+        World w = new World();
+        w.setMaxCrea(2);
+        w.setMaxObj(2);
+        w.creeMondeAlea();
+        w.afficheWorld();
+        
+        try {
+            SauvegardePartie save = new SauvegardePartie("Sauvegarde-WoE-test.txt");
+            save.sauvegarderPartie(w);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
     public static void testChargementPartie() {
