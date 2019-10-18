@@ -75,7 +75,7 @@ public class Archer extends Personnage implements Combattant {
         // passer nom
         tokenizer.nextToken();
         return new Archer(Integer.parseInt(tokenizer.nextToken()),
-              tokenizer.nextToken(),
+                tokenizer.nextToken(),
                 Integer.parseInt(tokenizer.nextToken()),
                 Integer.parseInt(tokenizer.nextToken()),
                 Integer.parseInt(tokenizer.nextToken()),
