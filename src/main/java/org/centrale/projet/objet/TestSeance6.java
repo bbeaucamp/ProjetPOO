@@ -16,19 +16,59 @@ import java.util.LinkedList;
 public class TestSeance6 {
     
     public static void main(String[] args){
-        //testTourDeJeuJoueurHumain();
-        testDeplacementsPossibles();
+        testTourDeJeuJoueurHumain();
+        //testDeplacementsPossibles();
     }
     
     public static void testTourDeJeuJoueurHumain(){
         System.out.println("Test de la méthode tourDeJeuJoueurHumain");
+        // Combattant cac
+        System.out.println("Test pour un combattant au corps à corps :");
         World w = new World();
         w.creeMondeAlea();
         Joueur j = w.getListeJoueurs().get(0); // on sélectionne un joueur du monde
+        j.getPerso().affiche();
         
         // Pour tester les méthodes, on ajoute des créatures autour de sa position
-        LinkedList listCreatures = (LinkedList) w.getListeCreatures();
-        w.tourDeJeuJoueurHumain(j);
+        LinkedList<Creature> listCreatures = (LinkedList) w.getListeCreatures();
+        Point2D posJoueur = j.getPerso().getPos();
+        Point2D newPos = new Point2D(posJoueur);
+        newPos.translate(0,1);
+        if (!w.getPositionsOccupees().contains(newPos)) {
+            listCreatures.get(0).setPos(newPos);
+        }
+        newPos = new Point2D(posJoueur);
+        newPos.translate(-1,-1);
+        if (!w.getPositionsOccupees().contains(newPos)) {
+            listCreatures.get(1).setPos(newPos);
+        }
+        
+        w.tourDeJeuJoueurHumain(j); // test déplacement
+        j.getPerso().affiche();
+        w.tourDeJeuJoueurHumain(j); // test combat
+        j.getPerso().affiche();
+        
+        // Combattant cac
+        System.out.println("Test pour un combattant à distance :");
+        w = new World();
+        w.creeMondeAlea();
+        j = w.getListeJoueurs().get(0); // on sélectionne un joueur du monde
+        j.getPerso().affiche();
+        
+        // Pour tester les méthodes, on ajoute des créatures autour de sa position
+        listCreatures = (LinkedList) w.getListeCreatures();
+        posJoueur = j.getPerso().getPos();
+        newPos = new Point2D(posJoueur);
+        newPos.translate(0,3);
+        listCreatures.get(0).setPos(newPos);
+        newPos = new Point2D(posJoueur);
+        newPos.translate(-2,-2);
+        listCreatures.get(1).setPos(newPos);
+        
+        w.tourDeJeuJoueurHumain(j); // test déplacement
+        j.getPerso().affiche();
+        w.tourDeJeuJoueurHumain(j); // test combat
+        j.getPerso().affiche();
     }
     
     public static void testDeplacementsPossibles(){

@@ -373,21 +373,24 @@ public class World {
         int choixMax;
         switch (choixAction) {
             case 1:
+                // Liste des positions atteignables
                 ArrayList<Point2D> deplacementsAutorises = deplacementsPossibles(j.getPerso().getPos());
+                System.out.print("Positions possibles :");
+                System.out.println(deplacementsAutorises);
                 choixMax = deplacementsAutorises.size() - 1;
                 if (choixMax >= 0) { // il y a au moins une case atteignable
-                    System.out.println("Chosissez une position que vous souhaitez atteindre (0 à " + choixMax + ") :");
+                    System.out.println("Choisissez une position que vous souhaitez atteindre (0 à " + choixMax + ") :");
                     input = new Scanner(System.in);
                     int choixDeplacement = input.nextInt();
                     while (choixDeplacement < 0 || choixDeplacement > choixMax) {
                         System.out.println("Choix invalide.");
-                        System.out.println("Chosissez une position que vous souhaitez atteindre (0 à " + choixMax + ") :");
+                        System.out.println("Choisissez une position que vous souhaitez atteindre (0 à " + choixMax + ") :");
                         input = new Scanner(System.in);
                         choixDeplacement = input.nextInt();
                     }
                     j.getPerso().setPos(deplacementsAutorises.get(choixDeplacement));
                 } else {
-                    System.out.println("Aucune position atteignable.");
+                    System.out.println("Il n'y a aucune position atteignable.");
                 }
                 break;
             case 2:
@@ -401,21 +404,26 @@ public class World {
 
                 // Choix du joueur
                 choixMax = creaturesAttaquables.size() - 1;
-                System.out.println("Chosissez une créature que vous souhaitez attaquer (0 à " + choixMax + ") :");
-                input = new Scanner(System.in);
-                int choix = input.nextInt();
-                while (choix < 0 || choix > choixMax) {
-                    System.out.println("Choix invalide.");
-                    System.out.println("Chosissez une créature que vous souhaitez attaquer (0 à " + choixMax + ") :");
+                if (choixMax >= 0) {
+                    System.out.println("Choisissez une créature que vous souhaitez attaquer (0 à " + choixMax + ") :");
                     input = new Scanner(System.in);
-                    choix = input.nextInt();
+                    int choix = input.nextInt();
+                    while (choix < 0 || choix > choixMax) {
+                        System.out.println("Choix invalide.");
+                        System.out.println("Choisissez une créature que vous souhaitez attaquer (0 à " + choixMax + ") :");
+                        input = new Scanner(System.in);
+                        choix = input.nextInt();
+                    }
+
+                    // Combat !
+                    if (perso instanceof Combattant){
+                        Combattant jCombattant = (Combattant)perso;
+                        jCombattant.combattre(creaturesAttaquables.get(choix));
+                    }
+                } else {
+                    System.out.println("Il n'y a pas de créature à attaquer à proximité");
                 }
                 
-                // Combat !
-                if (perso instanceof Combattant){
-                    Combattant jCombattant = (Combattant)perso;
-                    jCombattant.combattre(creaturesAttaquables.get(choix));
-                }
                 break;
             default:
                 System.out.println("Choix invalide");
