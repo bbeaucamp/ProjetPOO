@@ -1,4 +1,4 @@
-    /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -15,19 +15,16 @@ import java.util.StringTokenizer;
  *
  * @author muruowang
  */
-public class Guerrier extends Personnage implements Combattant  {
+public class Guerrier extends Personnage implements Combattant {
 
     public Guerrier(String nom, int ptMana, int pourcentageMag, int pourcentageResistMag, int degMag, int distAttMax, LinkedList<Nourriture> listeNourriture, int ptVie, int pourcentageAtt, int pourcentagePar, int degAtt, int ptPar, Point2D pos) {
         super(nom, ptMana, pourcentageMag, pourcentageResistMag, degMag, distAttMax, listeNourriture, ptVie, pourcentageAtt, pourcentagePar, degAtt, ptPar, pos);
     }
 
-    
-
     /**
      * Le constructeur sans paramètres. Possède les valeurs par défaut d'un
      * Personnage, sauf pour : nom : Guerrier, ptVie, degAtt
      */
- 
     public Guerrier() {
         super();
         Random generateurAleatoire = new Random();
@@ -45,11 +42,11 @@ public class Guerrier extends Personnage implements Combattant  {
         super(g);
     }
 
-      public static Guerrier fromString(String params){
+    public static Guerrier fromString(String params) {
         StringTokenizer tokenizer = new StringTokenizer(params, " ");
         // passer nom
         tokenizer.nextToken();
-        return new Guerrier( tokenizer.nextToken(),
+        return new Guerrier(tokenizer.nextToken(),
                 Integer.parseInt(tokenizer.nextToken()),
                 Integer.parseInt(tokenizer.nextToken()),
                 Integer.parseInt(tokenizer.nextToken()),
@@ -63,8 +60,7 @@ public class Guerrier extends Personnage implements Combattant  {
                 Integer.parseInt(tokenizer.nextToken()),
                 Point2D.fromString(tokenizer.nextToken()));
     }
-    
-    
+
     /**
      * Méthode pour le combat au coprs à corps. Ne marche que si la distance
      * entre l'attaquant et la créature est égale à 1.
@@ -104,5 +100,16 @@ public class Guerrier extends Personnage implements Combattant  {
         } else {
             System.out.println("La créature est trop loin");
         }
+    }
+
+    public String toString() {
+        String rse;
+        rse = "Guerrier " + this.getNom() + " " + this.getPtMana() + " " + this.getPourcentageMag() + " "
+                + this.getPourcentageResistMag() + " " + this.getDegMag() + " " + this.getDistAttMax() + " "
+                + this.getPtVie() + " " + this.getPourcentageAtt() + " " + this.getPourcentagePar() + " "
+                + this.getDegAtt() + " " + this.getPtPar() + " " + this.getPos().toString();
+
+        return rse;
+
     }
 }

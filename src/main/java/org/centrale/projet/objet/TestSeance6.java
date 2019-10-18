@@ -26,8 +26,8 @@ public class TestSeance6 {
     
     public static void testSauvegardePartie() {
         World w = new World();
-        w.setMaxCrea(2);
-        w.setMaxObj(2);
+        w.setMaxCrea(5);
+        w.setMaxObj(5);
         w.creeMondeAlea();
         w.afficheWorld();
         
