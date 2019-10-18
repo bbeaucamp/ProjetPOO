@@ -31,14 +31,9 @@ public class World {
     private List<Joueur> listeJoueurs;
 
     /**
-     * La liste des positions occupées sur le plateau.
-     */
-    private List<Point2D> positionsOccupees;
-
-    /**
      * La taille d'un côté du monde, supposé carré.
      */
-    private  int tailleMonde;
+    private int tailleMonde;
 
     /**
      * Le nombre maximal de créatures d'une sous-classe (Archer, Paysan, Loup,
@@ -58,6 +53,11 @@ public class World {
     private int nJoueurs;
 
     /**
+     * Les translations possibles depuis une positions sur la grille.
+     */
+    private List<Point2D> deplacementsUnitaires;
+
+    /**
      * Le constructeur sans paramètres qui initialise les créatures avec leurs
      * valeurs par défaut puis attribue un nom à chaque personnage.
      */
@@ -66,11 +66,19 @@ public class World {
         this.listeCreatures = new LinkedList<>();
         this.listeObjets = new LinkedList<>();
         this.listeJoueurs = new LinkedList<>();
-        this.positionsOccupees = new LinkedList<>();
         this.tailleMonde = 50;
         this.maxCrea = 40;
         this.maxObj = 5;
-        this.nJoueurs= 1;
+        this.nJoueurs = 1;
+        this.deplacementsUnitaires = new ArrayList<>();
+        this.deplacementsUnitaires.add(new Point2D(1, 0));
+        this.deplacementsUnitaires.add(new Point2D(1, 1));
+        this.deplacementsUnitaires.add(new Point2D(0, 1));
+        this.deplacementsUnitaires.add(new Point2D(-1, 1));
+        this.deplacementsUnitaires.add(new Point2D(-1, 0));
+        this.deplacementsUnitaires.add(new Point2D(-1, -1));
+        this.deplacementsUnitaires.add(new Point2D(0, -1));
+        this.deplacementsUnitaires.add(new Point2D(1, -1));
     }
 
     public List<Creature> getListeCreatures() {
@@ -85,7 +93,18 @@ public class World {
         return listeJoueurs;
     }
 
-    public List<Point2D> getPositionsOccupees() {
+    /**
+     * Renvoie la liste des positions occupées sur le plateau.
+     * @return 
+     */
+    public LinkedList<Point2D> getPositionsOccupees() {
+        LinkedList positionsOccupees = new LinkedList<>();
+        for (Creature c : this.listeCreatures) {
+            positionsOccupees.add(c.getPos());
+        }
+        for (Joueur j : this.listeJoueurs) {
+            positionsOccupees.add(j.getPerso().getPos());
+        }
         return positionsOccupees;
     }
 
@@ -111,8 +130,8 @@ public class World {
 
         int nCrea = nArcher + nGuerrier + nPaysan + nMage + nLoup + nLapin;
         int nObj = nSoin + nMana + nNuageToxique + nDegAttBonus + nDegAttMalus;
-        this.positionsOccupees = generePositionsAleatoires(nCrea + nObj + this.nJoueurs);
-        Iterator<Point2D> positionsIt = this.positionsOccupees.iterator();
+        LinkedList<Point2D> positionsDisponibles = generePositionsAleatoires(nCrea + nObj + this.nJoueurs);
+        Iterator<Point2D> positionsIt = positionsDisponibles.iterator();
 
         // Initialisation des créatures
         int i;
@@ -201,19 +220,6 @@ public class World {
             nouveauJoueur.getPerso().setPos(positionsIt.next());
             this.listeJoueurs.add(nouveauJoueur);
         }
-        
-        /* On met à jour positionsOccupees en ne gardant que les positions des créatures
-        et des joueurs.
-        Les positions des objets sont accessibles pour les créatures.
-        */
-        this.positionsOccupees = new LinkedList<>();
-        for (Creature c : this.listeCreatures) {
-            this.positionsOccupees.add(c.getPos());
-        }
-        for (Joueur j : this.listeJoueurs) {
-            this.positionsOccupees.add(j.getPerso().getPos());
-        }
-        
     }
 
     /**
@@ -244,11 +250,12 @@ public class World {
 
     /**
      * Crée un nouveau joueur suivant les valeurs entrées par l'utilisateur.
+     *
      * @return Le joueur créé.
      */
     public Joueur creeJoueur() {
         Joueur nouveauJoueur = new Joueur();
-        
+
         // Choix de la classe 
         System.out.println("Quel classe désirez-vous jouer ?");
         System.out.println("Choix possibles : Archer, Guerrier, Mage");
@@ -277,19 +284,23 @@ public class World {
                 nouveauJoueur.setPerso(new Archer());
                 break;
         }
-        
+
         // Choix du nom
         System.out.println("Entrez un nom pour votre personnage :");
         input = new Scanner(System.in);
         nouveauJoueur.getPerso().setNom(input.nextLine());
-        
+
         return nouveauJoueur;
     }
+
     /**
-     * Vérifie si newPos est à une distance >= 3 de tous les points de positions.
+     * Vérifie si newPos est à une distance >= 3 de tous les points de
+     * positions.
+     *
      * @param positions
      * @param newPos
-     * @return un booléen indiquant si newPos est à une distance >= 3 de tous les points de positions
+     * @return un booléen indiquant si newPos est à une distance >= 3 de tous
+     * les points de positions
      */
     public boolean verifierDistanceMin(LinkedList<Point2D> positions, Point2D newPos) {
         boolean res = true;
@@ -302,41 +313,169 @@ public class World {
     }
 
     /**
-     * Parcourt la liste des joueurs et des créatures et met à jour la nourriture
-     * de chaque personnage rencontré.
+     * Parcourt la liste des joueurs et des créatures et met à jour la
+     * nourriture de chaque personnage rencontré.
      */
     public void miseAJourNourritureWorld() {
-        for (Joueur j : this.listeJoueurs){
+        for (Joueur j : this.listeJoueurs) {
             this.miseAJourNourriturePersonnage(j.getPerso());
         }
-        
-        for (Creature c: this.listeCreatures) {
-            if (c instanceof Personnage){
-                this.miseAJourNourriturePersonnage((Personnage)c);
+
+        for (Creature c : this.listeCreatures) {
+            if (c instanceof Personnage) {
+                this.miseAJourNourriturePersonnage((Personnage) c);
             }
         }
     }
-    
+
     /**
-     * Parcourt la liste de nourriture du personnage, met à jour
-     * ses caractéristique et le compteur de tours restants.
-     * @param p 
+     * Parcourt la liste de nourriture du personnage, met à jour ses
+     * caractéristique et le compteur de tours restants.
+     *
+     * @param p
      */
     public void miseAJourNourriturePersonnage(Personnage p) {
         Iterator<Nourriture> nourritureIt = p.getListeNourriture().iterator();
         Nourriture n;
-        while(nourritureIt.hasNext()){
+        while (nourritureIt.hasNext()) {
             n = nourritureIt.next();
             n.consommer(p);
-            if (n.getNTours() == 0){ // La nourriture a été entièrement consommée
-                nourritureIt.remove(); 
+            if (n.getNTours() == 0) { // La nourriture a été entièrement consommée
+                nourritureIt.remove();
             }
         }
-        
-    }
-    
-    public void tourDeJeu() {
-        
+
     }
 
+    public void tourDeJeu() {
+
+    }
+
+    /**
+     * Fais jouer un tour de jeu à un joueur humain. Celui-ci a le choix de se
+     * déplacer ou de combattre une autre créature.
+     *
+     * @param j La joueur qui va jouer son tour.
+     */
+    public void tourDeJeuJoueurHumain(Joueur j) {
+        Personnage perso = j.getPerso();
+        Scanner input;
+        System.out.println("Voulez-vous vous déplacer (1) ou combattre (2) ?");
+        System.out.println("Entrez le numéro correspondant à votre choix :");
+
+        input = new Scanner(System.in);
+        int choixAction = input.nextInt();
+        while ((choixAction != 1) && (choixAction != 2)) {
+            input = new Scanner(System.in);
+            choixAction = input.nextInt();
+        }
+
+        int choixMax;
+        switch (choixAction) {
+            case 1:
+                ArrayList<Point2D> deplacementsAutorises = deplacementsPossibles(j.getPerso().getPos());
+                choixMax = deplacementsAutorises.size() - 1;
+                if (choixMax >= 0) { // il y a au moins une case atteignable
+                    System.out.println("Chosissez une position que vous souhaitez atteindre (0 à " + choixMax + ") :");
+                    input = new Scanner(System.in);
+                    int choixDeplacement = input.nextInt();
+                    while (choixDeplacement < 0 || choixDeplacement > choixMax) {
+                        System.out.println("Choix invalide.");
+                        System.out.println("Chosissez une position que vous souhaitez atteindre (0 à " + choixMax + ") :");
+                        input = new Scanner(System.in);
+                        choixDeplacement = input.nextInt();
+                    }
+                    j.getPerso().setPos(deplacementsAutorises.get(choixDeplacement));
+                } else {
+                    System.out.println("Aucune position atteignable.");
+                }
+                break;
+            case 2:
+                // Liste des créatures que le joueur peut attaquer
+                ArrayList<Creature> creaturesAttaquables = combatsPossibles(j);
+                System.out.println("Les créatures à proximité :");
+                for (int i = 0; i < creaturesAttaquables.size(); i++) {
+                    Creature c = creaturesAttaquables.get(i);
+                    System.out.println(i + " : " + c.getPos().toString() + " Points de vie : " + c.getPtVie());
+                }
+
+                // Choix du joueur
+                choixMax = creaturesAttaquables.size() - 1;
+                System.out.println("Chosissez une créature que vous souhaitez attaquer (0 à " + choixMax + ") :");
+                input = new Scanner(System.in);
+                int choix = input.nextInt();
+                while (choix < 0 || choix > choixMax) {
+                    System.out.println("Choix invalide.");
+                    System.out.println("Chosissez une créature que vous souhaitez attaquer (0 à " + choixMax + ") :");
+                    input = new Scanner(System.in);
+                    choix = input.nextInt();
+                }
+                
+                // Combat !
+                if (perso instanceof Combattant){
+                    Combattant jCombattant = (Combattant)perso;
+                    jCombattant.combattre(creaturesAttaquables.get(choix));
+                }
+                break;
+            default:
+                System.out.println("Choix invalide");
+
+        }
+    }
+
+    /**
+     * Renvoie la liste des déplacements possibles à partir d'une position
+     * donnée
+     *
+     * @param p La position de départ
+     * @return Une liste de positions atteignables.
+     */
+    public ArrayList<Point2D> deplacementsPossibles(Point2D p) {
+        ArrayList<Point2D> deplacements = new ArrayList<>();
+        Point2D nouveauDeplacement;
+        for (int i = 0; i < 8; i++) {
+            nouveauDeplacement = new Point2D(p);
+            Point2D depUnitaire = this.deplacementsUnitaires.get(i);
+            nouveauDeplacement.translate(depUnitaire.getX(), depUnitaire.getY());
+            if (positionInBounds(nouveauDeplacement) && !getPositionsOccupees().contains(nouveauDeplacement)) {
+                deplacements.add(nouveauDeplacement);
+            }
+        }
+        return deplacements;
+    }
+
+    /**
+     * Indique si une position est sur la grille ou non.
+     *
+     * @param p
+     * @return
+     */
+    public boolean positionInBounds(Point2D p) {
+        int x = p.getX();
+        int y = p.getY();
+
+        return (x >= 0) && (x < this.tailleMonde)
+                && (y >= 0) && (y < this.tailleMonde);
+    }
+
+    /**
+     * Renvoie la liste des créatures attaquables par le joueur.
+     *
+     * @param j L'attaquant
+     * @return La liste des créatures attaquables
+     */
+    public ArrayList<Creature> combatsPossibles(Joueur j) {
+        Personnage p = j.getPerso();
+        Point2D posJoueur = p.getPos();
+        int distAttMax = p.getDistAttMax();
+        ArrayList<Creature> creaturesAttaquables = new ArrayList<>();
+
+        for (Creature c : this.listeCreatures) {
+            if (posJoueur.distance(c.getPos()) <= distAttMax) {
+                creaturesAttaquables.add(c);
+            }
+        }
+
+        return creaturesAttaquables;
+    }
 }
