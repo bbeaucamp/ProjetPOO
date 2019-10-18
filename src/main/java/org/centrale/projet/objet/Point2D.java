@@ -91,7 +91,7 @@ public class Point2D {
     // afficher les positions des objets
     //toString() permet d’obtenir une représentation de l’objet sous forme de chaîne de caractères
     public String toString() {
-        return (this.x + " ; " + this.y);
+        return (this.x + "," + this.y);
     }
 
     /**
@@ -111,7 +111,7 @@ public class Point2D {
     }
     
     public static Point2D fromString(String params) {
-        StringTokenizer tokenizer = new StringTokenizer(params, ";");
+        StringTokenizer tokenizer = new StringTokenizer(params, ",");
         return new Point2D(Integer.parseInt(tokenizer.nextToken()), Integer.parseInt(tokenizer.nextToken()));
     }
 
