@@ -8,12 +8,16 @@ package org.centrale.projet.objet;
 import java.util.LinkedList;
 
 /**
- *
+ * Interface pour permettre à certaines entités de se déplacer sur le plateau de jeu.
  * @author muruowang
  */
-// Interface
 interface Deplacable {
     
-    // Interface abstract methods cannot have body
+    /**
+     * Deplace une entité vers une nouvelle position si elle est libre.
+     * @param nouvellePosition La position atteinte par l'entité si elle est libre.
+     * @param positionsOccupees La liste des positions sur lesquelles l'entité ne peut pas se déplacer
+     * @param dimension La taille du monde dans lequel l'entité se déplace.
+     */
     public void deplacer(Point2D nouvellePosition, LinkedList<Point2D> positionsOccupees, int dimension);
 }
