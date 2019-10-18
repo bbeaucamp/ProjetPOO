@@ -36,13 +36,16 @@ public class Joueur {
         StringTokenizer tokenizer = new StringTokenizer(params, " ");
         tokenizer.nextToken(); // On passe le nom de la classe
 
-        Class classePerso = Class.forName("org.centrale.projet.objet." + tokenizer.nextToken());
+        String paramsClasse = tokenizer.nextToken(""); // Une chaine comme celle passée à Guerrier, Archer, ...
+        tokenizer = new StringTokenizer(paramsClasse, " ");
+        String className = tokenizer.nextToken();
+        Class classePerso = Class.forName("org.centrale.projet.objet." + className);
         Method fromString = classePerso.getMethod("fromString", String.class);
-        return new Joueur((Personnage) fromString.invoke(null, (Object) tokenizer.nextToken("")));
+        return new Joueur((Personnage) fromString.invoke(null, (Object) paramsClasse));
     }
     
     public void affiche(){
-        System.out.println("Joueur possédant le personnage suivant :");
+        System.out.println("Le joueur possède le personnage suivant :");
         this.perso.affiche();
     }
     
