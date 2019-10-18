@@ -6,6 +6,7 @@
 package org.centrale.projet.objet;
 
 import java.util.Random;
+import java.util.StringTokenizer;
 
 /**
  * Un loup du jeu World of ECN. C'est un monstre qui attaque au corps à corps.
@@ -27,6 +28,22 @@ public class Loup extends Monstre implements Combattant  {
         this.setPourcentagePar(45 + generateurAleatoire.nextInt(10));
         this.setDegAtt(15 + generateurAleatoire.nextInt(7));
 
+    }
+    
+    public static Loup fromString(String params){
+        StringTokenizer tokenizer = new StringTokenizer(params, " ");
+        return new Loup(Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                Point2D.fromString(tokenizer.nextToken()));
+    }
+    
+    public Loup(String params){
+        super();
+        StringTokenizer tokenizer = new StringTokenizer(params, " ");
+        
     }
 
     /**

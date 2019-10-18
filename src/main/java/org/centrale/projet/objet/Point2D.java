@@ -5,6 +5,8 @@
  */
 package org.centrale.projet.objet;
 
+import java.util.StringTokenizer;
+
 /**
  * Un point du plan, défini par deux coordonnées entières.
  *
@@ -106,6 +108,11 @@ public class Point2D {
         // double dis = Math.sqrt(Math.pow(this.x - p.getX(), 2) + Math.pow(this.y - p.getY(),2));  // racine 
         double dis = Math.sqrt((this.x - p.getX()) * (this.x - p.getX()) + (this.y - p.getY()) * (this.y - p.getY()));
         return dis;
+    }
+    
+    public static Point2D fromString(String params) {
+        StringTokenizer tokenizer = new StringTokenizer(params, ",");
+        return new Point2D(Integer.parseInt(tokenizer.nextToken()), Integer.parseInt(tokenizer.nextToken()));
     }
 
 }
