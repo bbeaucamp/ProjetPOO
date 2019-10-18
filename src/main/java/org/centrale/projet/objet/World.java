@@ -93,6 +93,18 @@ public class World {
         return listeJoueurs;
     }
 
+    public void setListeCreatures(LinkedList<Creature> listeCreatures) {
+        this.listeCreatures = listeCreatures;
+    }
+
+    public void setListeObjets(LinkedList<Objet> listeObjets) {
+        this.listeObjets = listeObjets;
+    }
+
+    public void setListeJoueurs(LinkedList<Joueur> listeJoueurs) {
+        this.listeJoueurs = listeJoueurs;
+    }
+
     public int getTailleMonde() {
         return tailleMonde;
     }
