@@ -97,7 +97,7 @@ import java.util.Random;
         this.distAttMax = p.distAttMax;
         this.listeNourriture = new LinkedList<>(p.listeNourriture);
     }
-
+    
     public String getNom() {
         return nom;
     }

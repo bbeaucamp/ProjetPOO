@@ -5,6 +5,8 @@
  */
 package org.centrale.projet.objet;
 
+import java.util.StringTokenizer;
+
 /**
  *
  * @author muruowang
@@ -15,10 +17,12 @@ public class Soin extends Potion {
      */
     private int ptVieRendu;
 
-    public Soin(String nom, Point2D pos) {
-        super(nom,pos);
-        
+    public Soin(int ptVieRendu, String nom, Point2D pos) {
+        super(nom, pos);
+        this.ptVieRendu = ptVieRendu;
     }
+
+    
 
     public Soin() {
         super();
@@ -49,5 +53,12 @@ public class Soin extends Potion {
         System.out.println("Elle rend " + this.getPtVieRendu() + " points de vie");
     }
     
+    public static Soin fromString(String params){
+        StringTokenizer tokenizer = new StringTokenizer(params, " ");
+        tokenizer.nextToken();
+        return new Soin(Integer.parseInt(tokenizer.nextToken()),
+                tokenizer.nextToken(), 
+                Point2D.fromString(tokenizer.nextToken()));
+    }
  
 }

@@ -5,6 +5,9 @@
  */
 package org.centrale.projet.objet;
 
+import java.util.StringTokenizer;
+import java.lang.reflect.Method;
+import java.lang.reflect.InvocationTargetException;
 /**
  *
  * @author muruowang
@@ -26,6 +29,16 @@ public class Joueur {
 
     public void setPerso(Personnage perso) {
         this.perso = perso;
+    }
+    
+    public static Joueur fromString(String params) throws ClassNotFoundException, NoSuchMethodException, 
+            IllegalAccessException, InvocationTargetException {
+        StringTokenizer tokenizer = new StringTokenizer(params, " ");
+        tokenizer.nextToken(); // On passe le nom de la classe
+
+        Class classePerso = Class.forName(tokenizer.nextToken());
+        Method fromString = classePerso.getMethod("fromString", String.class);
+        return new Joueur((Personnage) fromString.invoke(null, (Object) tokenizer.nextToken("")));
     }
     
 }

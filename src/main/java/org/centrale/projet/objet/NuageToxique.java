@@ -69,7 +69,13 @@ public class NuageToxique extends Objet implements Deplacable, Combattant {
     }
 
 
- 
+    public static NuageToxique fromString(String params){
+        StringTokenizer tokenizer = new StringTokenizer(params, " ");
+        tokenizer.nextToken();
+        return new NuageToxique(tokenizer.nextToken(), 
+                Point2D.fromString(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()));
+    }
  
 
 

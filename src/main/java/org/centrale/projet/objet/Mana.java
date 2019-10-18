@@ -5,6 +5,8 @@
  */
 package org.centrale.projet.objet;
 
+import java.util.StringTokenizer;
+
 /**
  *
  * @author muruowang
@@ -16,10 +18,12 @@ public class Mana extends Potion {
      */
     private int ptManaRendu;
 
-    public Mana(String nom, Point2D pos) {
+    public Mana(int ptManaRendu, String nom, Point2D pos) {
         super(nom, pos);
-
+        this.ptManaRendu = ptManaRendu;
     }
+
+    
 
     public Mana() {
         super();
@@ -49,6 +53,14 @@ public class Mana extends Potion {
     public void affiche() {
         super.affiche();
         System.out.println("Elle rend " + this.getPtManaRendu() + " points de mana");
+    }
+    
+    public static Mana fromString(String params){
+        StringTokenizer tokenizer = new StringTokenizer(params, " ");
+        tokenizer.nextToken();
+        return new Mana(Integer.parseInt(tokenizer.nextToken()),
+                tokenizer.nextToken(), 
+                Point2D.fromString(tokenizer.nextToken()));
     }
 
 }

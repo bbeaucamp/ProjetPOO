@@ -32,6 +32,7 @@ public class Loup extends Monstre implements Combattant  {
     
     public static Loup fromString(String params){
         StringTokenizer tokenizer = new StringTokenizer(params, " ");
+        tokenizer.nextToken();
         return new Loup(Integer.parseInt(tokenizer.nextToken()),
                 Integer.parseInt(tokenizer.nextToken()),
                 Integer.parseInt(tokenizer.nextToken()),
@@ -53,11 +54,7 @@ public class Loup extends Monstre implements Combattant  {
      */
     public Loup(Loup l) {
         super(l);
-    }
-
-
-
-    
+    }  
        /**
      * Méthode pour le combat au coprs à corps. Ne marche que si la distance entre
      * l'attaquant et la créature est égale à  1. 

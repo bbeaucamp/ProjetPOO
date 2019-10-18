@@ -5,6 +5,7 @@
  */
 package org.centrale.projet.objet;
 import java.util.Random;
+import java.util.StringTokenizer;
 
 /**
  * Un lapin du jeu World of ECN.
@@ -36,6 +37,26 @@ public class Lapin extends Monstre  {
         this.setPourcentagePar(20 + generateurAleatoire.nextInt(15));
         this.setDegAtt(5 + generateurAleatoire.nextInt(3));
         this.setPtPar(2 + generateurAleatoire.nextInt(4));
+    }
+    
+    /**
+     * Renvoie un lapin à partir d'une chaine de caractères qui spécifie ses
+     * attributs. Cette méthode est utilisée pour charger une partie depuis
+     * un fichier de sauvegarde.
+     * @param params Chaine de caractère spécifiant les attributs de la créature,
+     * dans l'ordre du constructeur avec tous les paramètres, et séparés par un
+     * espace.
+     * @return Un lapin.
+     */
+    public static Lapin fromString(String params) {
+        StringTokenizer tokenizer = new StringTokenizer(params, " ");
+        tokenizer.nextToken();
+        return new Lapin(Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                Integer.parseInt(tokenizer.nextToken()),
+                Point2D.fromString(tokenizer.nextToken()));
     }
     
     
