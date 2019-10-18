@@ -23,15 +23,17 @@ public class Mage extends Personnage  implements Combattant  {
 
     /**
      * Le constructeur sans paramètres. Possède les valeurs par défaut d'un
-     * Personnage, sauf pour : - nom : Mage, - degMag : 20, - ptMana : 7, -
-     * pourcentageMag : 80, - distAttMax : 3
+     * Personnage, sauf pour : nom : Mage, degMag , ptMana,
+     * pourcentageMag, distAttMax et ptPar.
      */
     public Mage() {
         super();
+        Random generateurAleatoire = new Random();
         this.setPtMana(7);
         this.setNom("Mage");
-        this.setPourcentageMag(80);
-        this.setDegMag(20);
+        this.setPourcentageMag(75 + generateurAleatoire.nextInt(10));
+        this.setDegMag(20 + generateurAleatoire.nextInt(15));
+        this.setPtPar(5 + generateurAleatoire.nextInt(5));
         this.setDistAttMax(3);
     }
 
@@ -53,7 +55,7 @@ public class Mage extends Personnage  implements Combattant  {
     @Override
     public void combattre(Creature c) {
         if (c.getPos().distance(this.getPos()) >= 1
-                && c.getPos().distance(this.getPos()) < this.getDistAttMax()
+                && c.getPos().distance(this.getPos()) <= this.getDistAttMax()
                 && this.getPtMana() >= 1) {
             this.setPtMana(this.getPtMana() - 1); // On retire 1 mana
             Random generateurAleatoire = new Random();
@@ -77,14 +79,14 @@ public class Mage extends Personnage  implements Combattant  {
                     c.setPtVie(c.getPtVie() - qteDegats);
                     System.out.println(qteDegats + " dégâts sont infligés");
                 } else {
-                    System.out.println("Aucun dégâts subis");
+                    System.out.println("Aucuns dégâts subis");
                 }
 
             } else {
-                System.out.println("Attaque magique échouée");
+                System.out.println("Attaque magique échouée !");
             }
         } else {
-            System.out.println("Attaque échouée");
+            System.out.println("Impossible d'attaquer");
         }
     }
 

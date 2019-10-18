@@ -19,14 +19,13 @@ public class Loup extends Monstre implements Combattant  {
 
     /**
      * Le constructeur sans paramètres. Possède les valeurs par défaut d'un 
-     * Monstre, sauf pour :
-     *  - pourcentagePar : 20,
-     *  - degAtt : 10
+     * Monstre, sauf pour : pourcentagePar, degAtt.
      */
     public Loup() {
         super();
-        this.setPourcentagePar(20);
-        this.setDegAtt(10);
+        Random generateurAleatoire = new Random();
+        this.setPourcentagePar(45 + generateurAleatoire.nextInt(10));
+        this.setDegAtt(15 + generateurAleatoire.nextInt(7));
 
     }
 
@@ -57,7 +56,7 @@ public class Loup extends Monstre implements Combattant  {
             int jetAttaque = 1 + generateurAleatoire.nextInt(100);
             System.out.println("Jet d'attaque : " + jetAttaque + ". Pourcentage d'attaque : " + this.getPourcentageAtt());
             if (jetAttaque <= c.getPourcentageAtt()) {
-                System.out.println("Attaque au corps à corps réussie");
+                System.out.println("Attaque au corps à corps réussie !");
                 int qteDegats = this.getDegAtt();
                 // Tentative de parade
                 int jetDefense = 1 + generateurAleatoire.nextInt(100);
@@ -76,10 +75,10 @@ public class Loup extends Monstre implements Combattant  {
                     System.out.println("Aucun dégâts subis");
                 }
             } else {
-                System.out.println("Attaque au corps à corps échouée");
+                System.out.println("Attaque au corps à corps échouée !");
             }
         } else {
-            System.out.println("Attaque échouée");
+            System.out.println("La créature est trop loin");
         }
     }
     

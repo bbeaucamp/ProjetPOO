@@ -6,6 +6,7 @@
 package org.centrale.projet.objet;
 
 import java.util.LinkedList;
+import java.util.Random;
 
 /**
  * Un personnage du jeu World of ECN.
@@ -66,11 +67,17 @@ import java.util.LinkedList;
      */
     public Personnage() {
         super(100, 70, 60, 15, 5, new Point2D());
+        Random generateurAleatoire = new Random();
+        this.setPtVie(100 + generateurAleatoire.nextInt(30));
+        this.setPourcentageAtt(60 + generateurAleatoire.nextInt(10));
+        this.setPourcentagePar(55 + generateurAleatoire.nextInt(10));
+        this.setDegAtt(15 + generateurAleatoire.nextInt(5));
+        this.setPtPar(8 + generateurAleatoire.nextInt(5));
         this.nom = "Personnage";
-        this.ptMana = 5;
-        this.pourcentageMag = 30;
-        this.pourcentageResistMag = 30;
-        this.degMag = 10;
+        this.ptMana = 3 + generateurAleatoire.nextInt(3);
+        this.pourcentageMag = 25 + generateurAleatoire.nextInt(10);
+        this.pourcentageResistMag = 30 + generateurAleatoire.nextInt(10);
+        this.degMag = 10 + generateurAleatoire.nextInt(5);
         this.distAttMax = 1;
         this.listeNourriture = new LinkedList<>();
     }

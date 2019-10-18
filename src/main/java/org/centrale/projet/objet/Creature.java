@@ -6,6 +6,7 @@
 package org.centrale.projet.objet;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Une entité de base du jeu World of ECN.
@@ -60,11 +61,12 @@ public abstract class Creature extends ElementDeJeu implements Deplacable {
      * Le constructeur sans paramètres. Les valeurs par défaut sont arbitraires.
      */
     public Creature() {
-        this.ptVie = 50;
-        this.pourcentageAtt = 50;
-        this.pourcentagePar = 50;
-        this.degAtt = 5;
-        this.ptPar = 2;
+        Random generateurAleatoire = new Random();
+        this.ptVie = 40 + generateurAleatoire.nextInt(15);
+        this.pourcentageAtt = 45 + generateurAleatoire.nextInt(15);
+        this.pourcentagePar = 40 + generateurAleatoire.nextInt(10);
+        this.degAtt = 8 + generateurAleatoire.nextInt(5);
+        this.ptPar = 4 + generateurAleatoire.nextInt(3);
         this.pos = new Point2D();
     }
 

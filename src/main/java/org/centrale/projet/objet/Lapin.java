@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package org.centrale.projet.objet;
+import java.util.Random;
 
 /**
  * Un lapin du jeu World of ECN.
@@ -28,8 +29,13 @@ public class Lapin extends Monstre  {
      */
     //Possède toutes les valeurs par défaut de Creature.
     public Lapin() {
-        super(10, 50, 20, 5, 2, new Point2D());
-        
+        super();
+        Random generateurAleatoire = new Random();
+        this.setPtVie(10 + generateurAleatoire.nextInt(7));
+        this.setPourcentageAtt(30 + generateurAleatoire.nextInt(10));
+        this.setPourcentagePar(20 + generateurAleatoire.nextInt(15));
+        this.setDegAtt(5 + generateurAleatoire.nextInt(3));
+        this.setPtPar(2 + generateurAleatoire.nextInt(4));
     }
     
     

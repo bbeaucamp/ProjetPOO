@@ -24,13 +24,14 @@ public class Guerrier extends Personnage implements Combattant  {
 
     /**
      * Le constructeur sans paramètres. Possède les valeurs par défaut d'un
-     * Personnage, sauf pour : - nom : Guerrier, - ptVie : 120, - degAtt : 20
+     * Personnage, sauf pour : nom : Guerrier, ptVie, degAtt
      */
  
     public Guerrier() {
         super();
-        this.setPtVie(120);
-        this.setDegAtt(20);
+        Random generateurAleatoire = new Random();
+        this.setPtVie(120 + generateurAleatoire.nextInt(30));
+        this.setDegAtt(25 + generateurAleatoire.nextInt(10));
         this.setNom("Guerrier");
     }
 
@@ -58,7 +59,7 @@ public class Guerrier extends Personnage implements Combattant  {
             int jetAttaque = 1 + generateurAleatoire.nextInt(100);
             System.out.println("Jet d'attaque : " + jetAttaque + ". Pourcentage d'attaque : " + this.getPourcentageAtt());
             if (jetAttaque <= c.getPourcentageAtt()) {
-                System.out.println("Attaque au corps à corps réussie");
+                System.out.println("Attaque au corps à corps réussie !");
                 int qteDegats = this.getDegAtt();
                 // Tentative de parade
                 int jetDefense = 1 + generateurAleatoire.nextInt(100);
@@ -74,13 +75,13 @@ public class Guerrier extends Personnage implements Combattant  {
                     System.out.println(qteDegats + " dégâts sont infligés");
                     c.setPtVie(c.getPtVie() - qteDegats);
                 } else {
-                    System.out.println("Aucun dégâts subis");
+                    System.out.println("Aucuns dégâts subis");
                 }
             } else {
-                System.out.println("Attaque au corps à corps échouée");
+                System.out.println("Attaque au corps à corps échouée !");
             }
         } else {
-            System.out.println("Attaque à distance échouée");
+            System.out.println("La créature est trop loin");
         }
     }
 }

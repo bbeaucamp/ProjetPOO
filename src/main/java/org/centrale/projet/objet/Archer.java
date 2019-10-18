@@ -73,7 +73,7 @@ public class Archer extends Personnage implements Combattant {
 
     public void combattre(Creature c) {
         if (c.getPos().distance(this.getPos()) > 1
-                && c.getPos().distance(this.getPos()) < this.getDistAttMax()  // distance Attaque maximum
+                && c.getPos().distance(this.getPos()) <= this.getDistAttMax()  // distance Attaque maximum
                 && this.getNbFleches() >= 1) {
             this.setNbFleches(this.getNbFleches() - 1);
 
@@ -84,7 +84,7 @@ public class Archer extends Personnage implements Combattant {
             int jetAttaque = 1 + generateurAleatoire.nextInt(100);
             System.out.println("Jet d'attaque : " + jetAttaque + ". Pourcentage d'attaque : " + this.getPourcentageAtt());
             if (jetAttaque <= c.getPourcentageAtt()) {
-                System.out.println("Attaque à distance réussie");
+                System.out.println("Attaque à distance réussie !");
                 int qteDegats = this.getDegAtt();
                 // Tentative de parade
                 int jetDefense = 1 + generateurAleatoire.nextInt(100);
@@ -100,14 +100,14 @@ public class Archer extends Personnage implements Combattant {
                     System.out.println(qteDegats + " dégâts sont infligés");
                     c.setPtVie(c.getPtVie() - qteDegats);
                 } else {
-                    System.out.println("Aucun dégâts subis");
+                    System.out.println("Aucuns dégâts subis !");
                 }
 
             } else {
-                System.out.println("Attaque à distance échouée");
+                System.out.println("Attaque à distance échouée !");
             }
         } else {
-            System.out.println("Attaque échouée");
+            System.out.println("Impossible d'attaquer");
         }
     }
     
