@@ -51,7 +51,7 @@ public class ChargementPartie {
                 if (premierMot.equals("tailleMonde")) {
                     w.setTailleMonde(Integer.parseInt(tokenizer.nextToken()));
                 } else { // Une classe
-                    Class classeElementJeu = Class.forName(premierMot);
+                    Class classeElementJeu = Class.forName("org.centrale.projet.objet." + premierMot);
                     Method fromString = classeElementJeu.getMethod("fromString", String.class);
                     Object elementJeu = fromString.invoke(null, ligne);
                     // On décide où doit être stocké l'élément de jeu
@@ -63,6 +63,7 @@ public class ChargementPartie {
                         w.getListeJoueurs().add((Joueur) elementJeu);
                     }
                 }
+                ligne = this.fichier.readLine();
             }
         } catch (Exception e) {
             e.printStackTrace();

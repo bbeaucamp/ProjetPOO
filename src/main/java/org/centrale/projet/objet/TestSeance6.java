@@ -5,6 +5,7 @@
  */
 package org.centrale.projet.objet;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -16,8 +17,20 @@ import java.util.LinkedList;
 public class TestSeance6 {
     
     public static void main(String[] args){
-        testTourDeJeuJoueurHumain();
+        testChargementPartie();
+        //testTourDeJeuJoueurHumain();
         //testDeplacementsPossibles();
+    }
+    
+    public static void testChargementPartie() {
+        try {
+            ChargementPartie load = new ChargementPartie("Sauvegarde-WoE.txt");
+            World w = load.chargerPartie();
+            w.afficheWorld();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        
     }
     
     public static void testTourDeJeuJoueurHumain(){

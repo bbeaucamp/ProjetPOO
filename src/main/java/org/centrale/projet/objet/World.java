@@ -367,6 +367,23 @@ public class World {
 
     }
 
+    public void afficheWorld(){
+        System.out.println("Taille du monde : " + this.tailleMonde);
+        System.out.println("");
+        System.out.println("Nombre de créatures  : " + this.listeCreatures.size());
+        System.out.println("Première créature de la liste : "); 
+        this.listeCreatures.get(0).affiche();
+        System.out.println("");
+        System.out.println("Nombre de joueurs : " + this.listeJoueurs.size());
+        System.out.println("Premier joueur de la liste : "); 
+        this.listeJoueurs.get(0).affiche();
+        System.out.println("");
+        System.out.println("Nombre d'objets : " + this.listeObjets.size());
+        System.out.println("Premier objet de la liste : "); 
+        this.listeObjets.get(0).affiche();
+        
+    }
+    
     public void tourDeJeu() {
 
     }

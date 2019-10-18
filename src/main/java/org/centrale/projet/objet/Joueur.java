@@ -36,9 +36,14 @@ public class Joueur {
         StringTokenizer tokenizer = new StringTokenizer(params, " ");
         tokenizer.nextToken(); // On passe le nom de la classe
 
-        Class classePerso = Class.forName(tokenizer.nextToken());
+        Class classePerso = Class.forName("org.centrale.projet.objet." + tokenizer.nextToken());
         Method fromString = classePerso.getMethod("fromString", String.class);
         return new Joueur((Personnage) fromString.invoke(null, (Object) tokenizer.nextToken("")));
+    }
+    
+    public void affiche(){
+        System.out.println("Joueur possédant le personnage suivant :");
+        this.perso.affiche();
     }
     
 }
