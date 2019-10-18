@@ -18,17 +18,17 @@ public class World {
     /**
      * La liste des créatures sur le plateau.
      */
-    private List<Creature> listeCreatures;
+    private LinkedList<Creature> listeCreatures;
 
     /**
      * La liste des objets sur le plateau.
      */
-    private List<Objet> listeObjets;
+    private LinkedList<Objet> listeObjets;
 
     /**
      * La liste des joueurs.
      */
-    private List<Joueur> listeJoueurs;
+    private LinkedList<Joueur> listeJoueurs;
 
     /**
      * La taille d'un côté du monde, supposé carré.
@@ -48,7 +48,7 @@ public class World {
     private int maxObj;
 
     /**
-     * Le nombre de joueurs.
+     * Le nombre de joueurs. Seulement utilisé lors de la génération aléatoire du monde.
      */
     private int nJoueurs;
 
@@ -91,6 +91,14 @@ public class World {
 
     public List<Joueur> getListeJoueurs() {
         return listeJoueurs;
+    }
+
+    public int getTailleMonde() {
+        return tailleMonde;
+    }
+
+    public void setTailleMonde(int tailleMonde) {
+        this.tailleMonde = tailleMonde;
     }
 
     /**
