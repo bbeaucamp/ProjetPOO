@@ -58,17 +58,9 @@ public class ChargementPartie {
     }
     
     public World chargerPartie(World w){
-        World w1 = new World();
-        w1.setTailleMonde(0);
-        w1.setListeCreatures(listeCreatures);
-        w1.setListeJoueurs(listeJoueurs);
-        w1.setListeObjets(listeObjets);
-    
-        return w1;
+   
+        return w;
     }
-    
-    public void static creerElementJeu(params){
-    
-    }
+
     
 }
