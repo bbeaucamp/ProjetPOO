@@ -5,7 +5,7 @@
  */
 package org.centrale.projet.objet;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 /**
  * Une entité de base du jeu World of ECN.
@@ -156,7 +156,7 @@ public abstract class Creature extends ElementDeJeu implements Deplacable {
      * peut pas se déplacer.
      * @param dimension La dimension du plateau de jeu (supposé carré).
      */
-    public void deplacer(Point2D nouvellePosition, LinkedList<Point2D> positionsOccupees, int dimension) {
+    public void deplacer(Point2D nouvellePosition, ArrayList<Point2D> positionsOccupees, int dimension) {
         
         if (nouvellePosition.getX() >= 0 && nouvellePosition.getX() < dimension
                 && nouvellePosition.getY() >= 0 && nouvellePosition.getY() < dimension

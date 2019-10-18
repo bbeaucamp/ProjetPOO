@@ -97,8 +97,8 @@ public class World {
      * Renvoie la liste des positions occupées sur le plateau.
      * @return 
      */
-    public LinkedList<Point2D> getPositionsOccupees() {
-        LinkedList positionsOccupees = new LinkedList<>();
+    public ArrayList<Point2D> getPositionsOccupees() {
+        ArrayList positionsOccupees = new ArrayList<>();
         for (Creature c : this.listeCreatures) {
             positionsOccupees.add(c.getPos());
         }

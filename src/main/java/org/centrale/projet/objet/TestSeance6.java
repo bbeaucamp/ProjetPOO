@@ -91,7 +91,7 @@ public class TestSeance6 {
         
         // Avec des créatures sur les cases adjacentes
         pos = new Point2D(5, 5);
-        LinkedList<Point2D> posOccupees = (LinkedList)w.getPositionsOccupees();
+        ArrayList<Point2D> posOccupees = (ArrayList)w.getPositionsOccupees();
         posOccupees.add(new Point2D(5,6));
         posOccupees.add(new Point2D(4,5));
         positionsPossibles = w.deplacementsPossibles(pos);
