@@ -48,6 +48,7 @@ public class ChargementPartie {
             while (ligne != null) {
                 tokenizer = new StringTokenizer(ligne, " ");
                 premierMot = tokenizer.nextToken();
+                System.out.println(premierMot);
                 if (premierMot.equals("tailleMonde")) {
                     w.setTailleMonde(Integer.parseInt(tokenizer.nextToken()));
                 } else { // Une classe
