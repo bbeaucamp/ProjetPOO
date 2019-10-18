@@ -2,7 +2,6 @@ Largeur 25
 Hauteur 25
 Guerrier grosBill 250 0 80 60 0 10 15 0 1 5 8 3
 Mage merlin 50 50 20 25 85 80 2 20 7 2 15 22
-Voleur arsene 75 0 60 80 0 25 15 0 1 5 5 7
 Archer robin 75 0 50 60 0 25 10 0 10 5 20 11
 Paysan peon 25 0 0 30 0 0 1 0 1 5 3 6
 Loup 30 50 50 25 5 19 3
