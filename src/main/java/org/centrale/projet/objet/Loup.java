@@ -96,4 +96,12 @@ public class Loup extends Monstre implements Combattant  {
         }
     }
     
+    public String toString(){
+        String res;
+        res = "Loup " + this.getPtVie() + " " + this.getPourcentageAtt() + " " +
+                this.getPourcentagePar() + " " + this.getDegAtt() + " " + 
+                this.getPtPar() + " " + this.getPos().toString();
+        return res;
+    }
+    
 }

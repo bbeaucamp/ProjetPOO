@@ -41,8 +41,7 @@ public class NuageToxique extends Objet implements Deplacable, Combattant {
     /**
      * Translate le nuage toxique d'une quantité spécifiée (les cases en
      * diagonale sont autorisées).
-     * @param dx Nombre de cases à translater en x
-     * @param dy Nombre de cases à translater en y
+     * @param nouvellePosition
      * @param positionsOccupees Inutilisée ici car le nuage peut se déplacer partout.
      * @param dimension La dimension du plateau de jeu (supposé carré).
      */
@@ -77,6 +76,10 @@ public class NuageToxique extends Objet implements Deplacable, Combattant {
                 Integer.parseInt(tokenizer.nextToken()));
     }
  
-
+    public String toString(){
+        String res;
+        res = "NuageToxique " + this.getNom() + " " + this.getPos().toString() + " " + this.getDegAtt();
+        return res;
+    }
 
 }

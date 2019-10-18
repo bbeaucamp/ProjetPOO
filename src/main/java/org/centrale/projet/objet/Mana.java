@@ -62,5 +62,11 @@ public class Mana extends Potion {
                 tokenizer.nextToken(), 
                 Point2D.fromString(tokenizer.nextToken()));
     }
+    
+    public String toString(){
+        String res;
+        res = "Mana " + this.getPtManaRendu() + " " + this.getNom() + " " + this.getPos().toString();
+        return res;
+    }
 
 }

@@ -20,21 +20,21 @@ public class ChargementPartie {
     /**
      * Le nom du fichier de sauvegarde à charger.
      */
-    private String nomFiche;
+    private String nomFichier;
     private BufferedReader fichier;
 
-    public ChargementPartie(String nomFiche) throws FileNotFoundException {
-        this.nomFiche = nomFiche;
-        this.fichier = new BufferedReader(new FileReader(nomFiche));
+    public ChargementPartie(String nomFichier) throws FileNotFoundException {
+        this.nomFichier = nomFichier;
+        this.fichier = new BufferedReader(new FileReader(nomFichier));
 
     }
 
-    public String getNomFiche() {
-        return nomFiche;
+    public String getNomFichier() {
+        return nomFichier;
     }
 
-    public void setNomFiche(String nomFiche) {
-        this.nomFiche = nomFiche;
+    public void setNomFichier(String nomFiche) {
+        this.nomFichier = nomFiche;
     }
 
     public World chargerPartie() {

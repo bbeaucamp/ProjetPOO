@@ -60,5 +60,11 @@ public class Soin extends Potion {
                 tokenizer.nextToken(), 
                 Point2D.fromString(tokenizer.nextToken()));
     }
+    
+    public String toString(){
+        String res;
+        res = "Soin " + this.getPtVieRendu() + " " + this.getNom() + " " + this.getPos().toString();
+        return res;
+    }
  
 }

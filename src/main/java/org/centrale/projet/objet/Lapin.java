@@ -59,6 +59,14 @@ public class Lapin extends Monstre  {
                 Point2D.fromString(tokenizer.nextToken()));
     }
     
+    public String toString(){
+        String res;
+        res = "Lapin " + this.getPtVie() + " " + this.getPourcentageAtt() + " " +
+                this.getPourcentagePar() + " " + this.getDegAtt() + " " + 
+                this.getPtPar() + " " + this.getPos().toString();
+        return res;
+    }
+    
     
 
 }
