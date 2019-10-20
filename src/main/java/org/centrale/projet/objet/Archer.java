@@ -68,12 +68,13 @@ public class Archer extends Personnage implements Combattant {
     /**
      *
      * @param params Les parametres dans le constructeur "public Archer()"
-     * @return
+     * @return Un Archer
      */
     public static Archer fromString(String params){
         StringTokenizer tokenizer = new StringTokenizer(params, " ");
         // passer nom
         tokenizer.nextToken();
+        // passer type String à int (Integer est une classe définie dans Java)
         return new Archer(Integer.parseInt(tokenizer.nextToken()),
                 tokenizer.nextToken(),
                 Integer.parseInt(tokenizer.nextToken()),
@@ -105,7 +106,7 @@ public class Archer extends Personnage implements Combattant {
       }
     /**
      * Méthode pour le combat à distance. Ne marche que si la distance entre
-     * l'attaquant et la créature est > 1. Retire une flèche à l'attaquant.
+     * l'attaquant et la créature est supérier à 1. Retire une flèche à l'attaquant.
      *
      * @param c La créature attaquée par l'archer.
      */

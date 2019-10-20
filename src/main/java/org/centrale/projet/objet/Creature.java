@@ -152,8 +152,7 @@ public abstract class Creature extends ElementDeJeu implements Deplacable {
     /**
      * Translate une créature d'une quantité spécifiée (les cases en
      * diagonale sont autorisées).
-     * @param dx Nombre de cases à translater en x
-     * @param dy Nombre de cases à translater en y
+     * @param nouvellePosition La position de Creature
      * @param positionsOccupees Liste des positions sur lesquelles la créature ne
      * peut pas se déplacer.
      * @param dimension La dimension du plateau de jeu (supposé carré).

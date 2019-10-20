@@ -123,7 +123,7 @@ public class World {
 
     /**
      * Renvoie la liste des positions occupées sur le plateau.
-     * @return 
+     * @return Renturn les positions occupées.
      */
     public ArrayList<Point2D> getPositionsOccupees() {
         ArrayList positionsOccupees = new ArrayList<>();
@@ -322,12 +322,12 @@ public class World {
     }
 
     /**
-     * Vérifie si newPos est à une distance >= 3 de tous les points de
+     * Vérifie si newPos est à une distance supérier ou égale à 3 de tous les points de
      * positions.
      *
-     * @param positions
-     * @param newPos
-     * @return un booléen indiquant si newPos est à une distance >= 3 de tous
+     * @param positions Position de Point2D
+     * @param newPos Génrer les nouvelles positions dans la liste
+     * @return un booléen indiquant si newPos est à une distance supérier ou égale à 3 de tous
      * les points de positions
      */
     public boolean verifierDistanceMin(LinkedList<Point2D> positions, Point2D newPos) {
@@ -360,7 +360,7 @@ public class World {
      * Parcourt la liste de nourriture du personnage, met à jour ses
      * caractéristique et le compteur de tours restants.
      *
-     * @param p
+     * @param p Type Personngae
      */
     public void miseAJourNourriturePersonnage(Personnage p) {
         Iterator<Nourriture> nourritureIt = p.getListeNourriture().iterator();
@@ -500,8 +500,8 @@ public class World {
     /**
      * Indique si une position est sur la grille ou non.
      *
-     * @param p
-     * @return
+     * @param p Type Point2D
+     * @return Un point 
      */
     public boolean positionInBounds(Point2D p) {
         int x = p.getX();
