@@ -41,7 +41,7 @@ public class NuageToxique extends Objet implements Deplacable, Combattant {
     /**
      * Translate le nuage toxique d'une quantité spécifiée (les cases en
      * diagonale sont autorisées).
-     * @param nouvellePosition
+     * @param nouvellePosition La nouvelle position de Nuage Toxique
      * @param positionsOccupees Inutilisée ici car le nuage peut se déplacer partout.
      * @param dimension La dimension du plateau de jeu (supposé carré).
      */
