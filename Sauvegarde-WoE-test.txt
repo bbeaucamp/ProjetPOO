@@ -1,17 +1,29 @@
 tailleMonde 50
-Archer 5 Archer 3 27 33 11 5 105 68 58 16 10 18,18
-Archer 5 Archer 3 27 30 10 5 101 67 57 19 10 26,9
-Loup 54 46 49 15 6 41,7
-Loup 50 59 48 19 4 7,35
-Loup 49 48 54 18 5 37,18
-Soin 20 Soin 14,25
-Soin 20 Soin 49,23
-NuageToxique NuageToxique 30,37 4
-NuageToxique NuageToxique 18,27 4
-NuageToxique NuageToxique 13,23 4
-DegAttBonus 2 3 Objet 17,27
-DegAttBonus 2 3 Objet 43,3
-DegAttBonus 2 3 Objet 9,34
-DegAttBonus 2 3 Objet 31,31
-DegAttMalus 2 3 Objet 21,36
-Joueur Mage mage_test 7 80 33 22 3 103 67 62 17 8 21,23
+Archer 5 Archer 4 29 36 12 5 109 61 60 15 11 28,47
+Archer 5 Archer 3 30 33 14 5 112 67 55 16 11 14,45
+Archer 5 Archer 3 25 39 13 5 121 69 58 16 11 12,8
+Archer 5 Archer 5 34 34 12 5 100 65 64 17 10 38,8
+Guerrier Guerrier 5 31 35 12 1 141 63 55 28 9 17,22
+Guerrier Guerrier 4 29 31 11 1 145 66 63 33 11 1,13
+Guerrier Guerrier 5 30 32 10 1 130 65 64 30 8 28,26
+Paysan Paysan 4 27 32 14 1 105 64 56 18 9 2,2
+Paysan Paysan 3 26 36 12 1 118 66 58 18 10 31,39
+Mage Mage 7 77 30 30 3 114 65 62 16 5 46,7
+Loup 47 56 47 20 4 49,24
+Loup 42 47 45 17 5 37,33
+Loup 48 58 49 19 6 2,11
+Loup 41 59 45 17 4 47,2
+Lapin 14 34 30 5 4 2,31
+Lapin 13 38 33 5 3 46,12
+NuageToxique NuageToxique 16,25 4
+NuageToxique NuageToxique 29,16 4
+NuageToxique NuageToxique 44,47 4
+NuageToxique NuageToxique 27,46 4
+DegAttBonus 2 3 Objet 12,37
+DegAttBonus 2 3 Objet 39,28
+DegAttBonus 2 3 Objet 33,4
+DegAttMalus 2 3 Objet 48,17
+DegAttMalus 2 3 Objet 28,24
+DegAttMalus 2 3 Objet 10,29
+DegAttMalus 2 3 Objet 2,29
+Joueur Mage tets 7 82 34 34 3 109 69 56 18 7 21,8

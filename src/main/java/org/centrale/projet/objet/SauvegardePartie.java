@@ -9,13 +9,15 @@ import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Random;
+import java.util.Date;
+import java.sql.Timestamp;
 
 /**
  *
  * @author Benjamin
  */
 public class SauvegardePartie {
+
     /**
      * Le nom du fichier de sauvegarde à charger.
      */
@@ -28,9 +30,12 @@ public class SauvegardePartie {
     }
 
     public SauvegardePartie() {
-        Random generateurAleatoire = new Random();
-        this.nomFichier = "Sauvegarde-WoE-" + generateurAleatoire.nextInt(1000000); // Mieux avec un timestamp
-    } 
+
+        Date date = new Date();
+        long time = date.getTime();
+        Timestamp ts = new Timestamp(time);
+        this.nomFichier = "Sauvegarde-WoE-timestamp" + ts; // Mieux avec un timestamp
+    }
 
     public String getNomFichier() {
         return nomFichier;
@@ -40,33 +45,30 @@ public class SauvegardePartie {
         this.nomFichier = nomFichier;
     }
 
-    
-
-    public void sauvegarderPartie(World w){
-        try{
+    public void sauvegarderPartie(World w) {
+        try {
             this.fichier.write("tailleMonde " + w.getTailleMonde());
             this.fichier.newLine();
-            
+
             for (Creature c : w.getListeCreatures()) {
                 this.fichier.write(c.toString());
                 this.fichier.newLine();
             }
-            
+
             for (Objet o : w.getListeObjets()) {
                 this.fichier.write(o.toString());
                 this.fichier.newLine();
             }
-            
+
             for (Joueur j : w.getListeJoueurs()) {
                 this.fichier.write(j.toString());
                 this.fichier.newLine();
-            }   
-        } catch (IOException e){
+            }
+        } catch (IOException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             try {
-                if (this.fichier != null){
+                if (this.fichier != null) {
                     this.fichier.flush();
                     this.fichier.close();
                 }
@@ -75,5 +77,5 @@ public class SauvegardePartie {
             }
         }
     }
-    
+
 }

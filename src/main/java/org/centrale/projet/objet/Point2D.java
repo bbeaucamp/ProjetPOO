@@ -90,7 +90,7 @@ public class Point2D {
     // CM2 : page 65
     // afficher les positions des objets
     //toString() permet d’obtenir une représentation de l’objet sous forme de chaîne de caractères
-    public String toString() {
+    public  String toString() {
         return (this.x + "," + this.y);
     }
 
