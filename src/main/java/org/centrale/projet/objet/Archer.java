@@ -74,6 +74,7 @@ public class Archer extends Personnage implements Combattant {
         StringTokenizer tokenizer = new StringTokenizer(params, " ");
         // passer nom
         tokenizer.nextToken();
+        // passer type String à int (Integer est une classe définie dans Java)
         return new Archer(Integer.parseInt(tokenizer.nextToken()),
                 tokenizer.nextToken(),
                 Integer.parseInt(tokenizer.nextToken()),
