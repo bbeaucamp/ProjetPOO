@@ -5,7 +5,7 @@
  */
 package org.centrale.projet.objet;
 
-import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Random;
 
 /**
@@ -150,22 +150,45 @@ public abstract class Creature extends ElementDeJeu implements Deplacable {
     }
 
     /**
-     * Translate une créature d'une quantité spécifiée (les cases en
-     * diagonale sont autorisées).
+     * Translate une créature d'une quantité spécifiée (les cases en diagonale
+     * sont autorisées).
+     *
      * @param nouvellePosition La position de Creature
-     * @param positionsOccupees Liste des positions sur lesquelles la créature ne
-     * peut pas se déplacer.
+     * @param positionsOccupees Liste des positions sur lesquelles la créature
+     * ne peut pas se déplacer.
      * @param dimension La dimension du plateau de jeu (supposé carré).
      */
-    public void deplacer(Point2D nouvellePosition, ArrayList<Point2D> positionsOccupees, int dimension) {
-        
+    public void deplacer(Point2D nouvellePosition, World w, int dimension) {
+
         if (nouvellePosition.getX() >= 0 && nouvellePosition.getX() < dimension
                 && nouvellePosition.getY() >= 0 && nouvellePosition.getY() < dimension
-                && !positionsOccupees.contains(nouvellePosition)){
+                && !w.getPositionsOccupees().contains(nouvellePosition)) {
             this.setPos(nouvellePosition);
+
+            Iterator<Objet> objetsIt = w.getListeObjets().iterator();
+            while(objetsIt.hasNext()) {
+                Objet o = objetsIt.next();
+                if (o.getPos().equals(this.getPos())) {
+                    if (this instanceof Personnage) {
+                        if (o instanceof Potion) {
+                            ((Potion) o).boire((Personnage) this);
+                            objetsIt.remove();
+                        } else if (o instanceof Nourriture) {
+                            ((Personnage) this).getListeNourriture().add((Nourriture) o);
+                            objetsIt.remove();
+                        }
+                    } else {
+                        if (o instanceof NuageToxique) {
+                            ((NuageToxique) o).combattre(this);
+                        }
+                    }
+
+                }
+
+            }
         } else {
             System.out.println("Déplacement impossible ! La case est occupée ou hors des limites.");
         }
     }
-    
+
 }

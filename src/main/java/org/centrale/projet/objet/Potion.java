@@ -21,6 +21,7 @@ package org.centrale.projet.objet;
         this.setNom("Portion");
     }
     
+    public abstract void boire(Personnage p);
  
     
 }

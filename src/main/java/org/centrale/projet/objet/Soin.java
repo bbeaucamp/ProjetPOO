@@ -44,10 +44,10 @@ public class Soin extends Potion {
     /**
      * Utilise la potion de soin et rend des points de vie. Après utilisation,
      * la quantité de vie rendue par la potion passe à 0.
-     * @param c La créature qui va utiliser la potion.
+     * @param p Le perosnnage qui va utiliser la potion.
      */
-    public void boire(Creature c){
-        c.setPtVie(c.getPtVie() + this.ptVieRendu);
+    public void boire(Personnage p){
+        p.setPtVie(p.getPtVie() + this.ptVieRendu);
         this.setPtVieRendu(0); // La potion est utilisée
     }
     

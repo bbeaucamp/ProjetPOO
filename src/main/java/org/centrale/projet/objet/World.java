@@ -67,7 +67,7 @@ public class World {
         this.listeCreatures = new LinkedList<>();
         this.listeObjets = new LinkedList<>();
         this.listeJoueurs = new LinkedList<>();
-        this.tailleMonde = 50;
+        this.tailleMonde = 30;
         this.maxCrea = 40;
         this.maxObj = 5;
         this.nJoueurs = 1;
@@ -120,6 +120,10 @@ public class World {
 
     public void setTailleMonde(int tailleMonde) {
         this.tailleMonde = tailleMonde;
+    }
+    
+    public static void main(String[] args){
+        
     }
 
     /**
@@ -387,14 +391,15 @@ public class World {
         }
         Collections.sort((List) elementsAffichables);
 
+        // Première ligne de chiffres
         System.out.print("   ");
         for (int ii = 0; ii < this.tailleMonde; ii++) {
             if (ii < 10) {
-               System.out.print(ii + "  "); 
+                System.out.print(ii + "  ");
             } else {
-                System.out.print(ii + " "); 
+                System.out.print(ii + " ");
             }
-            
+
         }
         System.out.println("");
 
@@ -404,19 +409,29 @@ public class World {
             elementActuel = elementIt.next();
         }
         for (int i = 0; i < this.tailleMonde; i++) {
+            // Colonne de chiffres
             if (i < 10) {
                 System.out.print(i + "  ");
             } else {
                 System.out.print(i + " ");
             }
-            
+
             for (int j = 0; j < this.tailleMonde; j++) {
-                if ((elementActuel != null) && (new Point2D(j,i)).equals(elementActuel.getPos())) {
+                if ((elementActuel != null) && (new Point2D(j, i)).equals(elementActuel.getPos())) {
                     System.out.print(elementActuel.getNomAffichage() + " ");
                     if (elementIt.hasNext()) {
                         elementActuel = elementIt.next();
                     } else {
                         elementActuel = null;
+                    }
+
+                    while ((elementActuel != null) && (new Point2D(j, i)).equals(elementActuel.getPos())) {
+                        System.out.print(elementActuel.getNomAffichage() + " ");
+                        if (elementIt.hasNext()) {
+                            elementActuel = elementIt.next();
+                        } else {
+                            elementActuel = null;
+                        }
                     }
                 } else {
                     System.out.print(".  ");
@@ -427,13 +442,13 @@ public class World {
     }
 
     public void tourDeJeu() {
-   
+
         Iterator<Joueur> it = listeJoueurs.iterator();
-        for (Joueur j : this.listeJoueurs) {  
-            while (it.hasNext()) {  
+        for (Joueur j : this.listeJoueurs) {
+            while (it.hasNext()) {
                 this.tourDeJeuJoueurHumain(it.next());
                 System.out.println("A vous de jouer " + j.getPerso().getNom() + " !");
-            }    
+            }
         }
     }
 
@@ -475,7 +490,7 @@ public class World {
                         input = new Scanner(System.in);
                         choixDeplacement = input.nextInt();
                     }
-                    j.getPerso().deplacer(deplacementsAutorises.get(choixDeplacement), this.getPositionsOccupees(), this.tailleMonde);
+                    j.getPerso().deplacer(deplacementsAutorises.get(choixDeplacement), this, this.tailleMonde);
                 } else {
                     System.out.println("Il n'y a aucune position atteignable.");
                 }
