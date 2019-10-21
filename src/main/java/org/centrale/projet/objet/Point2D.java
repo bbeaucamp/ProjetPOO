@@ -12,7 +12,7 @@ import java.util.StringTokenizer;
  *
  * @author muruowang
  */
-public class Point2D {
+public class Point2D implements Comparable<Point2D> {
 
     private int x;
     private int y;
@@ -113,6 +113,19 @@ public class Point2D {
     public static Point2D fromString(String params) {
         StringTokenizer tokenizer = new StringTokenizer(params, ",");
         return new Point2D(Integer.parseInt(tokenizer.nextToken()), Integer.parseInt(tokenizer.nextToken()));
+    }
+    
+    public int compareTo(Point2D p){
+        int res;
+        if ((this.y < p.getY()) || ( (this.y == p.getY()) && (this.x < p.getX()) )) {
+            res = -1;
+        } else if (this.equals(p)) {
+            res = 0;
+        } else {
+            res = 1;
+        }
+        
+        return res;
     }
 
 }
