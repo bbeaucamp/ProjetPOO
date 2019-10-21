@@ -13,6 +13,8 @@ import java.util.*;
  */
 public class NuageToxique extends Objet implements Deplacable, Combattant {
     
+    private final String nomAffichage = "NT";
+    
     /**
      * Les dégâts infligés par le nuage à une créature se trouvant sur la même case.
      */

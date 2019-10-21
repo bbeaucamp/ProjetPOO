@@ -12,6 +12,8 @@ import java.util.StringTokenizer;
  * @author muruowang
  */
 public class DegAttMalus extends Nourriture {
+    
+    private String nomAffichage = "Att-";
 
     public DegAttMalus(int nTours, int quantite, String nom, Point2D pos) {
         super(nTours, quantite, nom, pos);

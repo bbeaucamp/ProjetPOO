@@ -12,6 +12,9 @@ import java.util.StringTokenizer;
  * @author muruowang
  */
 public class Soin extends Potion {
+    
+    private final String nomAffichage = "S+";
+    
     /**
      * La quantité de vie rendue par la potion.
      */

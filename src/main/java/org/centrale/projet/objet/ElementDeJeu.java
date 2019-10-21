@@ -15,8 +15,16 @@ package org.centrale.projet.objet;
      * La position de l'objet sur la carte.
      */
     private Point2D pos;
-    
-   
+    private String nomAffichage;
+
+    public String getNomAffichage() {
+        return nomAffichage = "EdJ";
+    }
+
+    public void setNomAffichage(String nomAffichage) {
+        this.nomAffichage = nomAffichage;
+    }
+
 
     public ElementDeJeu(Point2D pos) {
         this.pos = pos;
@@ -37,4 +45,6 @@ package org.centrale.projet.objet;
         this.pos = pos;
     }
 
+    public abstract void affiche();
+    
 }

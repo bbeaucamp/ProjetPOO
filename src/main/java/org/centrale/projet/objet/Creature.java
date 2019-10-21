@@ -167,5 +167,5 @@ public abstract class Creature extends ElementDeJeu implements Deplacable {
             System.out.println("Déplacement impossible ! La case est occupée ou hors des limites.");
         }
     }
-
+    
 }

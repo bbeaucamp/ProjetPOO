@@ -14,6 +14,8 @@ import java.util.StringTokenizer;
  */
 public class Loup extends Monstre implements Combattant  {
 
+    private final String nomAffichage = "Lo";
+    
     public Loup(int ptVie, int pourcentageAtt, int pourcentagePar, int degAtt, int ptPar, Point2D pos) {
         super(ptVie, pourcentageAtt, pourcentagePar, degAtt, ptPar, pos);
     }

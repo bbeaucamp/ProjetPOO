@@ -14,6 +14,8 @@ import java.util.StringTokenizer;
 // classe Lapion héritage calsee Monstre
 public class Lapin extends Monstre  {
 
+    private final String nomAffichage = "La";
+    
     public Lapin(int ptVie, int pourcentageAtt, int pourcentagePar, int degAtt, int ptPar, Point2D pos) {
         super(ptVie, pourcentageAtt, pourcentagePar, degAtt, ptPar, pos);
     }
