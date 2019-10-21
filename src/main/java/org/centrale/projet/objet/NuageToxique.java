@@ -13,7 +13,7 @@ import java.util.*;
  */
 public class NuageToxique extends Objet implements Deplacable, Combattant {
     
-    private final String nomAffichage = "NT";
+    private String nomAffichage = "NT";
     
     /**
      * Les dégâts infligés par le nuage à une créature se trouvant sur la même case.
@@ -82,6 +82,14 @@ public class NuageToxique extends Objet implements Deplacable, Combattant {
         String res;
         res = "NuageToxique " + this.getNom() + " " + this.getPos().toString() + " " + this.getDegAtt();
         return res;
+    }
+
+    public String getNomAffichage() {
+        return nomAffichage;
+    }
+
+    public void setNomAffichage(String nomAffichage) {
+        this.nomAffichage = nomAffichage;
     }
 
 }

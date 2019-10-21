@@ -13,13 +13,21 @@ import java.util.StringTokenizer;
  */
 public class DegAttBonus extends Nourriture {
     
-    private String nomAffichage = "Att+";
+    private String nomAffichage = "A+";
 
     public DegAttBonus(int nTours, int quantite, String nom, Point2D pos) {
         super(nTours, quantite, nom, pos);
     }
 
     public DegAttBonus() {
+    }
+    
+     public String getNomAffichage() {
+        return nomAffichage;
+    }
+
+    public void setNomAffichage(String nomAffichage) {
+        this.nomAffichage = nomAffichage;
     }
     
     public void consommer(Personnage p){

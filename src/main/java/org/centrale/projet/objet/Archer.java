@@ -22,11 +22,19 @@ public class Archer extends Personnage implements Combattant {
      */
     // Attribut
     private int nbFleches;
-    private String nomAffichage = "A";
+    private String nomAffichage = "A ";
 
     public Archer(int nbFleches, String nom, int ptMana, int pourcentageMag, int pourcentageResistMag, int degMag, int distAttMax, LinkedList<Nourriture> listeNourriture, int ptVie, int pourcentageAtt, int pourcentagePar, int degAtt, int ptPar, Point2D pos) {
         super(nom, ptMana, pourcentageMag, pourcentageResistMag, degMag, distAttMax, listeNourriture, ptVie, pourcentageAtt, pourcentagePar, degAtt, ptPar, pos);
         this.nbFleches = nbFleches;
+    }
+
+    public String getNomAffichage() {
+        return nomAffichage;
+    }
+
+    public void setNomAffichage(String nomAffichage) {
+        this.nomAffichage = nomAffichage;
     }
 
     

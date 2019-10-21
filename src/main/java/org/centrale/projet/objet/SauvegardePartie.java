@@ -29,12 +29,13 @@ public class SauvegardePartie {
         this.fichier = new BufferedWriter(new FileWriter(this.nomFichier));
     }
 
-    public SauvegardePartie() {
+    public SauvegardePartie() throws FileNotFoundException, IOException {
 
         Date date = new Date();
         long time = date.getTime();
         Timestamp ts = new Timestamp(time);
         this.nomFichier = "Sauvegarde-WoE-timestamp" + ts; // Mieux avec un timestamp
+        this.fichier = new BufferedWriter(new FileWriter(this.nomFichier));
     }
 
     public String getNomFichier() {

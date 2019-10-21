@@ -13,7 +13,7 @@ import java.util.StringTokenizer;
  */
 public class Mana extends Potion {
 
-    private final String nomAffichage = "M+";
+    private String nomAffichage = "M+";
     
     /**
      * La quantité de mana rendu par la potion.
@@ -69,6 +69,14 @@ public class Mana extends Potion {
         String res;
         res = "Mana " + this.getPtManaRendu() + " " + this.getNom() + " " + this.getPos().toString();
         return res;
+    }
+
+    public String getNomAffichage() {
+        return nomAffichage;
+    }
+
+    public void setNomAffichage(String nomAffichage) {
+        this.nomAffichage = nomAffichage;
     }
 
 }

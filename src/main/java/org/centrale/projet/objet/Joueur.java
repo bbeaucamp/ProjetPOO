@@ -15,6 +15,15 @@ import java.lang.reflect.InvocationTargetException;
 public class Joueur {
     
     private Personnage perso;
+    private String nomAffichage = "JO";
+
+    public String getNomAffichage() {
+        return nomAffichage;
+    }
+
+    public void setNomAffichage(String nomAffichage) {
+        this.nomAffichage = nomAffichage;
+    }
 
     public Joueur(Personnage perso) {
         this.perso = perso;
