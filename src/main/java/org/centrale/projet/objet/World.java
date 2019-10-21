@@ -438,6 +438,7 @@ public class World {
     public void tourDeJeuJoueurHumain(Joueur j) {
         Personnage perso = j.getPerso();
         Scanner input;
+        System.out.println("A vous de jouer " + j.getPerso().getNom() + " !");
         System.out.println("Voulez-vous vous déplacer (1) ou combattre (2) ?");
         System.out.println("Entrez le numéro correspondant à votre choix :");
 

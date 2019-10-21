@@ -18,8 +18,8 @@ import java.util.StringTokenizer;
 public class TestSeance6 {
     
     public static void main(String[] args){
-        testAffichageWorld();
-        //testSauvegardePartie();
+        //testAffichageWorld();
+        testSauvegardePartie();
         //testChargementPartie();
         //testTourDeJeuJoueurHumain();
         //testDeplacementsPossibles();
@@ -40,7 +40,8 @@ public class TestSeance6 {
         w.afficheWorld();
         
         try {
-            SauvegardePartie save = new SauvegardePartie("Sauvegarde-WoE-test.txt");
+            //SauvegardePartie save = new SauvegardePartie("Sauvegarde-WoE-test.txt");
+            SauvegardePartie save = new SauvegardePartie();
             save.sauvegarderPartie(w);
         } catch (Exception e) {
             e.printStackTrace();
