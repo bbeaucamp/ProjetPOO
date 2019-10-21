@@ -16,7 +16,7 @@ import java.util.StringTokenizer;
  */
 public class Mage extends Personnage implements Combattant {
 
-    private final String nomAffichage = "M";
+    private String nomAffichage = "M ";
     
     public Mage(String nom, int ptMana, int pourcentageMag, int pourcentageResistMag, int degMag, int distAttMax, LinkedList<Nourriture> listeNourriture, int ptVie, int pourcentageAtt, int pourcentagePar, int degAtt, int ptPar, Point2D pos) {
         super(nom, ptMana, pourcentageMag, pourcentageResistMag, degMag, distAttMax, listeNourriture, ptVie, pourcentageAtt, pourcentagePar, degAtt, ptPar, pos);
@@ -119,6 +119,14 @@ public class Mage extends Personnage implements Combattant {
         } else {
             System.out.println("Impossible d'attaquer");
         }
+    }
+
+    public String getNomAffichage() {
+        return nomAffichage;
+    }
+
+    public void setNomAffichage(String nomAffichage) {
+        this.nomAffichage = nomAffichage;
     }
 
 }

@@ -9,21 +9,14 @@ package org.centrale.projet.objet;
  *
  * @author muruowang
  */
- public abstract class ElementDeJeu {
+ public abstract class ElementDeJeu implements Comparable<ElementDeJeu>{
 
     /**
      * La position de l'objet sur la carte.
      */
     private Point2D pos;
-    private String nomAffichage;
 
-    public String getNomAffichage() {
-        return nomAffichage = "EdJ";
-    }
-
-    public void setNomAffichage(String nomAffichage) {
-        this.nomAffichage = nomAffichage;
-    }
+    public abstract String getNomAffichage();
 
 
     public ElementDeJeu(Point2D pos) {
@@ -47,4 +40,7 @@ package org.centrale.projet.objet;
 
     public abstract void affiche();
     
+    public int compareTo(ElementDeJeu elem) {
+        return this.getPos().compareTo(elem.getPos());
+    }
 }

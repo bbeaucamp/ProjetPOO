@@ -48,7 +48,8 @@ public class World {
     private int maxObj;
 
     /**
-     * Le nombre de joueurs. Seulement utilisé lors de la génération aléatoire du monde.
+     * Le nombre de joueurs. Seulement utilisé lors de la génération aléatoire
+     * du monde.
      */
     private int nJoueurs;
 
@@ -123,6 +124,7 @@ public class World {
 
     /**
      * Renvoie la liste des positions occupées sur le plateau.
+     *
      * @return Renturn les positions occupées.
      */
     public ArrayList<Point2D> getPositionsOccupees() {
@@ -322,13 +324,13 @@ public class World {
     }
 
     /**
-     * Vérifie si newPos est à une distance supérier ou égale à 3 de tous les points de
-     * positions.
+     * Vérifie si newPos est à une distance supérier ou égale à 3 de tous les
+     * points de positions.
      *
      * @param positions Position de Point2D
      * @param newPos Génrer les nouvelles positions dans la liste
-     * @return un booléen indiquant si newPos est à une distance supérier ou égale à 3 de tous
-     * les points de positions
+     * @return un booléen indiquant si newPos est à une distance supérier ou
+     * égale à 3 de tous les points de positions
      */
     public boolean verifierDistanceMin(LinkedList<Point2D> positions, Point2D newPos) {
         boolean res = true;
@@ -375,23 +377,54 @@ public class World {
 
     }
 
-    public void afficheWorld(){
-        System.out.println("Taille du monde : " + this.tailleMonde);
+    public void afficheWorld() {
+        LinkedList<ElementDeJeu> elementsAffichables = new LinkedList<>();
+        elementsAffichables.addAll(this.listeCreatures);
+        elementsAffichables.addAll(this.listeObjets);
+        for (Joueur j : this.listeJoueurs) {
+            elementsAffichables.add(j.getPerso());
+        }
+        Collections.sort((List) elementsAffichables);
+
+        System.out.print("   ");
+        for (int ii = 0; ii < this.tailleMonde; ii++) {
+            if (ii < 10) {
+               System.out.print(ii + "  "); 
+            } else {
+                System.out.print(ii + " "); 
+            }
+            
+        }
         System.out.println("");
-        System.out.println("Nombre de créatures  : " + this.listeCreatures.size());
-        System.out.println("Première créature de la liste : "); 
-        this.listeCreatures.get(0).affiche();
-        System.out.println("");
-        System.out.println("Nombre de joueurs : " + this.listeJoueurs.size());
-        System.out.println("Premier joueur de la liste : "); 
-        this.listeJoueurs.get(0).affiche();
-        System.out.println("");
-        System.out.println("Nombre d'objets : " + this.listeObjets.size());
-        System.out.println("Premier objet de la liste : "); 
-        this.listeObjets.get(0).affiche();
-        
+
+        Iterator<ElementDeJeu> elementIt = elementsAffichables.iterator(); // Position à laquelle on affiche
+        ElementDeJeu elementActuel = null;
+        if (elementIt.hasNext()) {
+            elementActuel = elementIt.next();
+        }
+        for (int i = 0; i < this.tailleMonde; i++) {
+            if (i < 10) {
+                System.out.print(i + "  ");
+            } else {
+                System.out.print(i + " ");
+            }
+            
+            for (int j = 0; j < this.tailleMonde; j++) {
+                if ((elementActuel != null) && (new Point2D(j,i)).equals(elementActuel.getPos())) {
+                    System.out.print(elementActuel.getNomAffichage() + " ");
+                    if (elementIt.hasNext()) {
+                        elementActuel = elementIt.next();
+                    } else {
+                        elementActuel = null;
+                    }
+                } else {
+                    System.out.print(".  ");
+                }
+            }
+            System.out.println();
+        }
     }
-    
+
     public void tourDeJeu() {
 
     }
@@ -461,14 +494,14 @@ public class World {
                     }
 
                     // Combat !
-                    if (perso instanceof Combattant){
-                        Combattant jCombattant = (Combattant)perso;
+                    if (perso instanceof Combattant) {
+                        Combattant jCombattant = (Combattant) perso;
                         jCombattant.combattre(creaturesAttaquables.get(choix));
                     }
                 } else {
                     System.out.println("Il n'y a pas de créature à attaquer à proximité");
                 }
-                
+
                 break;
             default:
                 System.out.println("Choix invalide");
@@ -501,7 +534,7 @@ public class World {
      * Indique si une position est sur la grille ou non.
      *
      * @param p Type Point2D
-     * @return Un point 
+     * @return Un point
      */
     public boolean positionInBounds(Point2D p) {
         int x = p.getX();

@@ -18,10 +18,18 @@ import java.util.StringTokenizer;
 public class TestSeance6 {
     
     public static void main(String[] args){
-        testSauvegardePartie();
+        testAffichageWorld();
+        //testSauvegardePartie();
         //testChargementPartie();
         //testTourDeJeuJoueurHumain();
         //testDeplacementsPossibles();
+    }
+    
+    public static void testAffichageWorld() {
+        World w = new World();
+        w.creeMondeAlea();
+        w.afficheWorld();
+        
     }
     
     public static void testSauvegardePartie() {

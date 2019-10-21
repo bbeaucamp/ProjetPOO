@@ -13,7 +13,15 @@ import java.util.StringTokenizer;
  */
 public class DegAttMalus extends Nourriture {
     
-    private String nomAffichage = "Att-";
+    private String nomAffichage = "A-";
+
+    public String getNomAffichage() {
+        return nomAffichage;
+    }
+
+    public void setNomAffichage(String nomAffichage) {
+        this.nomAffichage = nomAffichage;
+    }
 
     public DegAttMalus(int nTours, int quantite, String nom, Point2D pos) {
         super(nTours, quantite, nom, pos);
