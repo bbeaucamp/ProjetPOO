@@ -442,7 +442,15 @@ public class World {
     }
 
     public void tourDeJeu() {
-
+        // Suppression des créatures mortes
+        Iterator<Creature> creasIt = this.listeCreatures.iterator();
+        while(creasIt.hasNext()) {
+            Creature c = creasIt.next();
+            if (c.getPtVie() <= 0){ // La créature est morte
+                creasIt.remove();
+            }
+        }
+        
         Iterator<Joueur> it = listeJoueurs.iterator();
         for (Joueur j : this.listeJoueurs) {
             while (it.hasNext()) {
@@ -450,6 +458,7 @@ public class World {
                 System.out.println("A vous de jouer " + j.getPerso().getNom() + " !");
             }
         }
+        this.miseAJourNourritureWorld();
     }
 
     /**
