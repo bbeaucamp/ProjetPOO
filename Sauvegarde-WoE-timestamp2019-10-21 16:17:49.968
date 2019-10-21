@@ -1,0 +1,149 @@
+tailleMonde 30
+Archer 5 Archer 5 32 34 11 5 119 61 63 17 11 12,24
+Archer 5 Archer 4 33 37 12 5 101 63 59 19 11 10,27
+Archer 5 Archer 3 25 35 12 5 102 65 57 17 10 15,25
+Archer 5 Archer 5 33 35 13 5 122 66 55 19 12 3,16
+Archer 5 Archer 3 29 33 13 5 122 61 57 16 11 9,22
+Archer 5 Archer 4 30 36 14 5 107 64 62 16 10 1,7
+Archer 5 Archer 5 28 36 12 5 126 65 64 16 10 16,13
+Archer 5 Archer 3 34 30 12 5 121 65 56 18 12 7,18
+Archer 5 Archer 5 26 34 12 5 121 69 59 16 11 26,23
+Archer 5 Archer 3 33 34 14 5 101 60 56 19 12 12,16
+Archer 5 Archer 5 29 32 14 5 114 61 56 17 9 4,4
+Archer 5 Archer 5 33 37 10 5 100 68 58 19 8 18,24
+Archer 5 Archer 3 30 30 11 5 109 63 64 15 11 21,17
+Archer 5 Archer 4 26 38 13 5 112 68 59 17 10 13,11
+Archer 5 Archer 4 34 37 10 5 104 63 55 19 10 4,9
+Archer 5 Archer 5 25 33 11 5 117 60 56 18 10 29,8
+Guerrier Guerrier 5 32 32 11 1 141 68 64 25 11 13,3
+Guerrier Guerrier 4 29 30 10 1 128 63 61 25 11 15,20
+Guerrier Guerrier 4 34 34 10 1 147 64 57 28 11 21,28
+Guerrier Guerrier 5 30 36 10 1 130 66 60 34 8 17,16
+Guerrier Guerrier 4 25 35 11 1 135 68 59 29 11 6,2
+Guerrier Guerrier 5 26 37 12 1 124 68 57 32 11 20,5
+Guerrier Guerrier 4 30 36 14 1 138 65 60 26 12 19,4
+Guerrier Guerrier 4 27 38 13 1 128 61 55 27 10 0,17
+Guerrier Guerrier 3 25 36 13 1 136 60 63 25 10 21,26
+Guerrier Guerrier 4 34 38 12 1 139 66 62 25 11 29,16
+Guerrier Guerrier 4 29 37 12 1 131 60 63 31 8 7,23
+Guerrier Guerrier 4 31 37 14 1 132 67 56 32 11 16,0
+Guerrier Guerrier 5 33 30 12 1 133 66 56 28 10 9,17
+Guerrier Guerrier 4 32 36 14 1 140 65 61 27 11 20,17
+Guerrier Guerrier 3 29 33 10 1 126 62 57 32 8 10,18
+Guerrier Guerrier 3 29 34 12 1 134 63 63 34 8 20,16
+Guerrier Guerrier 3 28 33 10 1 127 62 57 33 9 2,0
+Guerrier Guerrier 3 29 35 12 1 143 61 64 30 11 5,15
+Guerrier Guerrier 5 27 35 14 1 149 62 58 27 11 12,7
+Guerrier Guerrier 4 29 31 11 1 136 63 58 25 12 16,25
+Guerrier Guerrier 4 30 33 10 1 129 63 63 28 8 27,6
+Guerrier Guerrier 4 29 34 11 1 142 65 56 29 9 2,20
+Guerrier Guerrier 5 25 36 12 1 145 62 55 34 12 9,27
+Guerrier Guerrier 5 34 32 13 1 121 65 56 30 10 19,0
+Guerrier Guerrier 3 32 30 12 1 121 60 59 33 8 18,17
+Guerrier Guerrier 4 33 36 14 1 123 66 55 33 11 0,18
+Guerrier Guerrier 4 30 37 12 1 127 64 61 30 9 19,19
+Guerrier Guerrier 3 28 38 13 1 137 66 64 28 11 19,9
+Guerrier Guerrier 3 29 37 13 1 148 67 55 29 10 3,26
+Guerrier Guerrier 3 27 34 12 1 139 61 63 26 9 11,5
+Guerrier Guerrier 3 25 38 10 1 141 60 63 33 11 27,18
+Guerrier Guerrier 5 26 35 11 1 142 61 57 27 12 25,2
+Paysan Paysan 4 25 30 10 1 105 68 55 15 10 21,3
+Paysan Paysan 5 29 32 14 1 120 62 57 16 10 17,23
+Paysan Paysan 3 27 35 13 1 104 61 59 16 12 26,7
+Paysan Paysan 4 34 33 12 1 107 69 59 15 11 25,9
+Paysan Paysan 4 34 31 13 1 121 65 62 18 8 20,10
+Paysan Paysan 3 31 33 10 1 113 65 57 17 8 10,4
+Paysan Paysan 4 32 32 12 1 102 67 60 18 12 7,24
+Paysan Paysan 4 26 36 13 1 113 67 63 15 9 9,4
+Paysan Paysan 3 31 35 11 1 100 63 63 16 9 24,24
+Paysan Paysan 5 25 34 11 1 125 66 61 19 9 14,17
+Paysan Paysan 5 26 31 13 1 102 65 57 15 10 29,2
+Paysan Paysan 3 32 39 11 1 112 69 59 16 8 25,0
+Paysan Paysan 5 28 36 14 1 106 62 62 15 10 13,19
+Paysan Paysan 4 26 30 13 1 125 68 62 15 8 14,25
+Paysan Paysan 3 27 36 12 1 28 63 60 18 9 20,26
+Paysan Paysan 4 27 34 10 1 101 68 60 15 12 19,18
+Paysan Paysan 3 25 34 10 1 124 68 57 18 8 15,5
+Paysan Paysan 5 30 37 11 1 115 68 58 15 12 18,2
+Paysan Paysan 4 33 34 14 1 121 65 61 18 11 28,13
+Paysan Paysan 3 31 39 11 1 114 62 56 15 10 6,11
+Paysan Paysan 4 27 34 13 1 116 66 56 17 11 29,17
+Paysan Paysan 5 33 32 10 1 124 60 64 19 10 23,1
+Paysan Paysan 5 33 30 13 1 129 62 63 16 10 2,28
+Paysan Paysan 5 33 37 13 1 100 66 64 18 8 19,14
+Mage Mage 7 81 36 25 3 121 65 55 17 7 6,21
+Mage Mage 7 84 38 21 3 103 63 58 17 5 3,24
+Mage Mage 7 76 34 24 3 123 69 61 16 5 13,15
+Mage Mage 7 76 38 26 3 118 64 60 18 8 23,8
+Mage Mage 7 83 32 31 3 108 68 56 16 9 13,4
+Mage Mage 7 84 31 21 3 112 64 62 15 8 11,18
+Mage Mage 7 76 30 23 3 115 62 60 15 9 5,17
+Mage Mage 7 82 33 23 3 102 61 58 15 9 9,3
+Mage Mage 7 76 35 29 3 110 61 55 19 6 19,15
+Mage Mage 7 78 32 27 3 125 60 55 15 8 22,4
+Mage Mage 7 81 36 32 3 127 65 58 19 9 20,23
+Mage Mage 7 79 38 21 3 127 64 61 18 8 10,23
+Mage Mage 7 75 38 34 3 125 65 63 17 6 29,10
+Mage Mage 7 82 30 23 3 100 66 64 18 9 23,7
+Mage Mage 7 84 36 31 3 120 60 60 19 9 8,14
+Mage Mage 7 82 30 29 3 122 64 60 15 7 19,24
+Mage Mage 7 79 32 32 3 106 65 57 17 8 10,0
+Mage Mage 7 78 37 25 3 121 60 61 17 6 28,12
+Mage Mage 7 78 37 26 3 112 64 62 18 5 17,11
+Mage Mage 7 81 31 30 3 118 63 64 19 6 6,17
+Mage Mage 7 81 36 34 3 100 66 57 15 8 19,12
+Loup 43 57 45 20 5 15,14
+Loup 51 48 47 19 5 4,16
+Loup 49 53 45 20 5 12,29
+Loup 46 45 52 18 5 28,0
+Loup 42 54 53 15 6 5,18
+Loup 44 47 52 19 6 20,14
+Loup 51 45 48 20 6 3,27
+Loup 51 54 52 20 5 17,1
+Loup 44 57 53 18 6 22,9
+Loup 51 53 51 15 5 20,21
+Loup 40 50 52 21 6 4,27
+Loup 50 52 47 18 5 16,2
+Loup 52 50 50 17 6 1,19
+Loup 41 58 50 16 5 19,22
+Loup 40 48 45 21 6 4,7
+Loup 40 51 45 19 4 0,16
+Loup 40 52 46 20 4 6,5
+Loup 46 48 52 17 5 5,13
+Loup 52 56 47 17 6 17,4
+Loup 45 51 45 20 5 10,6
+Loup 44 58 53 19 5 21,11
+Loup 42 50 52 15 6 7,6
+Loup 50 58 48 16 6 18,8
+Loup 49 58 47 15 4 1,17
+Loup 41 55 51 17 5 0,10
+Loup 53 52 47 18 6 16,24
+Loup 48 48 46 21 4 5,20
+Loup 40 50 52 21 4 12,26
+Loup 54 48 52 15 4 11,21
+Loup 40 52 54 20 4 8,25
+Loup 53 51 46 20 5 14,15
+Loup 44 59 53 19 5 6,29
+Lapin 15 30 32 7 3 12,19
+Lapin 10 37 24 5 4 22,1
+Lapin 14 38 29 7 5 13,6
+Lapin 14 30 33 5 3 2,21
+Lapin 10 37 32 7 3 9,29
+Lapin 11 38 21 6 2 2,10
+Lapin 10 39 30 6 5 9,24
+Lapin 13 33 21 5 4 28,18
+Lapin 10 35 26 7 3 26,8
+Lapin 13 39 34 5 4 5,16
+Lapin 10 32 23 5 5 4,17
+Lapin 12 33 27 7 2 19,1
+Lapin 15 30 30 5 5 22,3
+Lapin 11 39 33 5 2 2,2
+Lapin 16 37 22 6 2 15,12
+Soin 20 Soin 26,2
+Mana 5 Mana 8,8
+Mana 5 Mana 20,27
+Mana 5 Mana 12,5
+NuageToxique NuageToxique 10,11 4
+NuageToxique NuageToxique 20,0 4
+DegAttBonus 2 3 Objet 18,11
+Joueur Archer 0 robin 4 25 37 10 5 103 63 56 25 8 24,25

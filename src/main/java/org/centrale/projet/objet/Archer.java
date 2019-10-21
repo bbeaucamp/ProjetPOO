@@ -57,7 +57,7 @@ public class Archer extends Personnage implements Combattant {
     public Archer() {
         super();
         this.setNom("Archer");
-        this.nbFleches = 5;
+        this.nbFleches = 20;
         this.setDistAttMax(5);
     }
 

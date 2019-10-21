@@ -30,7 +30,7 @@ public class Mage extends Personnage implements Combattant {
     public Mage() {
         super();
         Random generateurAleatoire = new Random();
-        this.setPtMana(7);
+        this.setPtMana(20);
         this.setNom("Mage");
         this.setPourcentageMag(75 + generateurAleatoire.nextInt(10));
         this.setDegMag(20 + generateurAleatoire.nextInt(15));

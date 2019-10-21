@@ -34,7 +34,7 @@ public class SauvegardePartie {
         Date date = new Date();
         long time = date.getTime();
         Timestamp ts = new Timestamp(time);
-        this.nomFichier = "Sauvegarde-WoE-timestamp" + ts; // Mieux avec un timestamp
+        this.nomFichier = "Sauvegarde-WoE-timestamp" + ts + ".txt"; // Mieux avec un timestamp
         this.fichier = new BufferedWriter(new FileWriter(this.nomFichier));
     }
 

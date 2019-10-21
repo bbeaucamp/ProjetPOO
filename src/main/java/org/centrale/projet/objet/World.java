@@ -58,6 +58,8 @@ public class World {
      */
     private List<Point2D> deplacementsUnitaires;
 
+    private boolean jeuEnCours;
+
     /**
      * Le constructeur sans paramètres qui initialise les créatures avec leurs
      * valeurs par défaut puis attribue un nom à chaque personnage.
@@ -80,6 +82,7 @@ public class World {
         this.deplacementsUnitaires.add(new Point2D(-1, -1));
         this.deplacementsUnitaires.add(new Point2D(0, -1));
         this.deplacementsUnitaires.add(new Point2D(1, -1));
+        this.jeuEnCours = true;
     }
 
     public void setMaxCrea(int maxCrea) {
@@ -121,9 +124,22 @@ public class World {
     public void setTailleMonde(int tailleMonde) {
         this.tailleMonde = tailleMonde;
     }
-    
-    public static void main(String[] args){
-        
+
+    public void setnJoueurs(int nJoueurs) {
+        this.nJoueurs = nJoueurs;
+    }
+
+    public boolean isJeuEnCours() {
+        return jeuEnCours;
+    }
+
+    public void setJeuEnCours(boolean jeuEnCours) {
+        this.jeuEnCours = jeuEnCours;
+    }
+
+    public void finPartie() {
+        this.jeuEnCours = false;
+        System.out.println("Fin de la partie ! Merci d'avoir joué");
     }
 
     /**
@@ -251,8 +267,11 @@ public class World {
         for (i = 0; i < this.nJoueurs; i++) {
             System.out.println("Joueur " + i + ", entrez vos choix.");
             Joueur nouveauJoueur = this.creeJoueur();
+            nouveauJoueur.getPerso().setNomAffichage("J" + i);
             nouveauJoueur.getPerso().setPos(positionsIt.next());
             this.listeJoueurs.add(nouveauJoueur);
+            System.out.println("Les caractéristiques de votre personnage :");
+            nouveauJoueur.affiche();
         }
     }
 
@@ -383,6 +402,7 @@ public class World {
 
     public void afficheWorld() {
 
+        System.out.println("Carte du monde :");
         LinkedList<ElementDeJeu> elementsAffichables = new LinkedList<>();
         elementsAffichables.addAll(this.listeCreatures);
         elementsAffichables.addAll(this.listeObjets);
@@ -444,21 +464,27 @@ public class World {
     public void tourDeJeu() {
         // Suppression des créatures mortes
         Iterator<Creature> creasIt = this.listeCreatures.iterator();
-        while(creasIt.hasNext()) {
+        while (creasIt.hasNext()) {
             Creature c = creasIt.next();
-            if (c.getPtVie() <= 0){ // La créature est morte
+            if (c.getPtVie() <= 0) { // La créature est morte
                 creasIt.remove();
             }
         }
-        
+
         Iterator<Joueur> it = listeJoueurs.iterator();
         for (Joueur j : this.listeJoueurs) {
             while (it.hasNext()) {
                 this.tourDeJeuJoueurHumain(it.next());
                 System.out.println("A vous de jouer " + j.getPerso().getNom() + " !");
             }
+            if (!this.jeuEnCours) {
+                break;
+            }
         }
-        this.miseAJourNourritureWorld();
+        if (this.jeuEnCours) {
+            this.miseAJourNourritureWorld();
+        }
+
     }
 
     /**
@@ -469,14 +495,24 @@ public class World {
      */
     public void tourDeJeuJoueurHumain(Joueur j) {
         Personnage perso = j.getPerso();
+        this.afficheWorld();
         Scanner input;
         System.out.println("A vous de jouer " + j.getPerso().getNom() + " !");
-        System.out.println("Voulez-vous vous déplacer (1) ou combattre (2) ?");
+        System.out.println("Vous vous trouvez en " + j.getPerso().getPos());
+        System.out.println("Voulez-vous vous déplacer (1), combattre (2), afficher vos caractéristiques (3) ou quitter (0)?");
         System.out.println("Entrez le numéro correspondant à votre choix :");
 
         input = new Scanner(System.in);
         int choixAction = input.nextInt();
-        while ((choixAction != 1) && (choixAction != 2)) {
+        if (choixAction == 3) {
+            j.affiche();
+            System.out.println("Voulez-vous vous déplacer (1), combattre (2) ou quitter (0)?");
+            System.out.println("Entrez le numéro correspondant à votre choix :");
+            input = new Scanner(System.in);
+            choixAction = input.nextInt();
+        }
+        
+        while ((choixAction != 0) && (choixAction != 1) && (choixAction != 2)) {
             input = new Scanner(System.in);
             choixAction = input.nextInt();
         }
@@ -536,9 +572,39 @@ public class World {
                 }
 
                 break;
+            case 0:
+                System.out.println("Souhaitez-vous sauvegarder ? Oui (1), non (2)");
+                input = new Scanner(System.in);
+                if (input.nextInt() == 1) {
+                    System.out.println("Souhaitez-vous entrer un nom de fichier (1) ou le générer automatiquement (2) ?");
+                    input = new Scanner(System.in);
+                    SauvegardePartie save;
+                    try {
+                        switch (input.nextInt()) {
+                            case 1:
+                                System.out.println("Entrez le nom du fichier de sauvegarde :");
+                                input = new Scanner(System.in);
+                                save = new SauvegardePartie(input.nextLine());
+                                save.sauvegarderPartie(this);
+                                break;
+                            case 2:
+                                save = new SauvegardePartie();
+                                save.sauvegarderPartie(this);
+                                break;
+                            default:
+                                System.out.println("Erreur");
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    } finally {
+                        this.finPartie();
+                    }
+
+                } else {
+                    this.finPartie();
+                }
             default:
                 System.out.println("Choix invalide");
-
         }
     }
 

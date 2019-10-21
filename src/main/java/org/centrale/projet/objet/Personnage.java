@@ -170,5 +170,7 @@ import java.util.Random;
     // Override abstract method deplacer() in Creature 
     public void deplacer() {
     }
+    
+    public abstract void setNomAffichage(String nomAffichage);
 
 }
