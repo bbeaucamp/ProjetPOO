@@ -98,6 +98,8 @@ import java.util.Random;
         this.listeNourriture = new LinkedList<>(p.listeNourriture);
     }
     
+    public abstract String getNomAffichage();
+    
     public String getNom() {
         return nom;
     }

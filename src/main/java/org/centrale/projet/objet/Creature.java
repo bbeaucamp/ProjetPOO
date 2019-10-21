@@ -89,6 +89,7 @@ public abstract class Creature extends ElementDeJeu implements Deplacable {
         // this.pos = c.pos;
     }
 
+    
     public int getPtVie() {
         return ptVie;
     }
@@ -160,6 +161,7 @@ public abstract class Creature extends ElementDeJeu implements Deplacable {
      */
     public void deplacer(Point2D nouvellePosition, World w, int dimension) {
 
+        boolean errorMessage = (this instanceof Personnage) && (((Personnage)this).getNomAffichage().charAt(0) == ("J".charAt(0)));
         if (nouvellePosition.getX() >= 0 && nouvellePosition.getX() < dimension
                 && nouvellePosition.getY() >= 0 && nouvellePosition.getY() < dimension
                 && !w.getPositionsOccupees().contains(nouvellePosition)) {
@@ -187,7 +189,10 @@ public abstract class Creature extends ElementDeJeu implements Deplacable {
 
             }
         } else {
-            System.out.println("Déplacement impossible ! La case est occupée ou hors des limites.");
+            if (errorMessage) {
+                System.out.println("Déplacement impossible ! La case est occupée ou hors des limites.");
+            }
+            
         }
     }
 

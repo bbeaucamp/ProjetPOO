@@ -475,14 +475,27 @@ public class World {
         for (Joueur j : this.listeJoueurs) {
             while (it.hasNext()) {
                 this.tourDeJeuJoueurHumain(it.next());
-                System.out.println("A vous de jouer " + j.getPerso().getNom() + " !");
             }
             if (!this.jeuEnCours) {
                 break;
             }
         }
+        
         if (this.jeuEnCours) {
             this.miseAJourNourritureWorld();
+            Random generateurAleatoire = new Random();
+            for (Objet o: this.listeObjets){
+                if (o instanceof NuageToxique){
+                    Point2D nouvellePos = new Point2D(o.getPos());
+                    nouvellePos.translate(generateurAleatoire.nextInt(3)-1, generateurAleatoire.nextInt(3)-1);
+                    ((NuageToxique)o).deplacer(nouvellePos, this, this.tailleMonde);
+                }
+            }
+            for (Creature c: this.listeCreatures) {
+                Point2D nouvellePos = new Point2D(c.getPos());
+                nouvellePos.translate(generateurAleatoire.nextInt(3)-1, generateurAleatoire.nextInt(3)-1);
+                c.deplacer(nouvellePos, this, this.tailleMonde);
+            }
         }
 
     }

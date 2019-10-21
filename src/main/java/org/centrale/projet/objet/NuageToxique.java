@@ -61,8 +61,6 @@ public class NuageToxique extends Objet implements Deplacable, Combattant {
                     this.combattre(j.getPerso());
                 }
             }
-        } else {
-            System.out.println("Déplacement impossible ! La case est hors du plateau.");
         }
         
     }
