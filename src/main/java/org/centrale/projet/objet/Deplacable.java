@@ -16,7 +16,7 @@ interface Deplacable {
     /**
      * Deplace une entité vers une nouvelle position si elle est libre.
      * @param nouvellePosition La position atteinte par l'entité si elle est libre.
-     * @param World Le monde dans lequel se déplace l'élément.
+     * @param w Le monde dans lequel se déplace l'élément.
      * @param dimension La taille du monde dans lequel l'entité se déplace.
      */
     public void deplacer(Point2D nouvellePosition, World w, int dimension);

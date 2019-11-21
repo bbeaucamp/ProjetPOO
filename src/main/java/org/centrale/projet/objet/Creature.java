@@ -155,8 +155,7 @@ public abstract class Creature extends ElementDeJeu implements Deplacable {
      * sont autorisées).
      *
      * @param nouvellePosition La position de Creature
-     * @param positionsOccupees Liste des positions sur lesquelles la créature
-     * ne peut pas se déplacer.
+     * @param w  World Le monde dans lequel se déplace l'élément.
      * @param dimension La dimension du plateau de jeu (supposé carré).
      */
     public void deplacer(Point2D nouvellePosition, World w, int dimension) {
